@@ -1,0 +1,4 @@
+Options All -Indexes
+ErrorDocument 500 /project_1/index.php?cl=errors&me=error500
+ErrorDocument 404 /project_1/index.php?cl=errors&me=error404
+ErrorDocument 403 /project_1/index.php?cl=errors&me=error403
