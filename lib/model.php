@@ -40,10 +40,10 @@ public function insert($query,$filtros){
 public function select($query,$filtros){
     $formatear=new formatearConsulta();
         $query.=$formatear->select($filtros);
-         
+        // var_dump($query);
         $this->prepararSentencia($query,$filtros);
         
-        
+    
          if($this->stmt){
             $this->data=$this->stmt->fetchAll();
             

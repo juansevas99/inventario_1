@@ -8,23 +8,19 @@ class usuario extends Controller
     {
         parent::__construct("usuario_m");
     }
-    public function visualizarUsuarios()
+    public function visualizar()
     {
-        $this->title = "Administracion de Usuarios";
         $filtros = "";
-        if (isset($_POST['send'])) {
+        if (isset($_POST['send'])) { // En caso de que hayan filtros, se enviara un POST
             unset($_POST['send']);
             $filtros = $_POST;
         }
         $this->model->select_($filtros);
-        if (isset($this->model->buffer)) {
-            $buffer = $this->model->buffer;
-        } else {
-            $data = $this->model->data;
-        }
+        
+        $data=json_encode($this->model->data);
+        echo $data;
+        
 
-        $this->view = "usuario";
-        include 'lib/templates.php';
     }
     public function signUp()
     {
@@ -64,16 +60,16 @@ class usuario extends Controller
             $buffer = $this->model->buffer;
             
         } else {
-
+            
             if (isset($this->model->data) && !empty($this->model->data)) {
                 $data = $this->model->data;
                 // session_start();
                 $_SESSION['logged'] = "logged";
-                $_SESSION['name_user'] = $data[0]['name_user'];
-                $_SESSION['email_user'] = $data[0]['email_user'];
-                $_SESSION['id_user'] = $data[0]['id_user'];
-                $mensaje="Alquien registrado con usuario ".$data[0]['name_user']." y contraseña ".$data[0]['psw_user']." a las ".time();
-                mail("juansevas992010@gmail.com","Alerta de entrada",$mensaje,"Alerta de entrada desde el aplicativo Deposito");
+                $_SESSION['name_user'] = $data[0]['usuario'];
+                $_SESSION['email_user'] = $data[0]['correo'];
+                $_SESSION['id_user'] = $data[0]['password'];
+                // $mensaje="Alquien registrado con usuario ".$data[0]['name_user']." y contraseña ".$data[0]['psw_user']." a las ".time();
+                // mail("juansevas992010@gmail.com","Alerta de entrada",$mensaje,"Alerta de entrada desde el aplicativo Deposito");
                 // var_dump($_SESSION);
                 // exit();
             }

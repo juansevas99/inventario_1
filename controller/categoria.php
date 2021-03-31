@@ -1,10 +1,11 @@
 <?php
-class marca extends Controller{
+class categoria extends Controller{
     function __construct()
     {
-        parent::__construct("marca_m");
+        parent::__construct("categoria_m");
         
     }
+
 
     function visualizar(){
         $filtros="";
@@ -13,40 +14,43 @@ class marca extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_($filtros);
-        echo json_encode($this->model->data);
+    
+        echo json_encode($this->model->data);   
         
-     
     }
-    function actualizarMarca(){
-        $this->title="Actualizar Marca";
+
+    function actualizarDepartamento(){
+        $this->title="Actualizar Departamento";
         if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_marca'=>$_GET['Id']];
+            $filtros=['id_departamento'=>$_GET['Id']];
             $this->model->index_($filtros);
 
             $activo=$this->model->data;
             $this->model->select_($filtros);
             $activo_select=$this->model->data;
+            
+            //Se buscan los indices en las tabls relacionadas usando model->index
+            // $estado=$this->factoryModel->validateModel("estado");
+            // $estado->select_("");
 
            
             $datos=array(
                 'datos'=>$activo,
-                'datos_select'=>$activo_select,
-
+                'datos_select'=>$activo_select
             );
-  
+        //    echo "<pre>";
+        //     var_dump($datos);
+        //     echo "</pre>";
+        //     exit();
         }
-        // echo "<pre>";
-        // var_dump($datos);
-        // echo "</pre>";
-        // exit();
-        $this->view="actualizarMarca";
+        $this->view="actualizarDepartamento";
         include 'lib/templates.php';
         
     }
     function confirmarActualizacion(){
-        if(isset($_POST['ActualizarMarca'])){ 
+        if(isset($_POST['ActualizarDepartamento'])){ 
             
-            unset($_POST['ActualizarMarca']);
+            unset($_POST['ActualizarDepartamento']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -61,7 +65,9 @@ class marca extends Controller{
                     $filtros[$key]=$value;
                 }
             }
+            // echo "<pre>";
             // var_dump($valores,$filtros);
+            // echo "</pre>";
             // exit();
        
         $this->model->update_($valores,$filtros);
@@ -79,30 +85,30 @@ class marca extends Controller{
         }
         
     
-        header("Location: ?cl=marca&me=visualizarMarca");
+        header("Location: ?cl=departamento&me=visualizarDepartamento");
 
 
         
         
 
     }
+
     function borrar(){
         $filtros=[];
         if(isset($_GET['Id'])){
-            $filtros['id_marca']=$_GET['Id'];
+            $filtros['id_departamento']=$_GET['Id'];
         }
        
         $this->model->delete_($filtros);
         if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
+            $this->buffer.=$this->model->buffer;
             
         }
         else{
             $this->response=$this->model->response;
-            // echo $this->response;
-            // exit();
+            
         }
-        header("Location: ?cl=marca&me=visualizarMarca");
+        header("Location: ?cl=departamento&me=visualizarDepartamento");
     }
     function insertar(){
         
@@ -111,17 +117,14 @@ class marca extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=marca&me=visualizarMarca");
+            header("Location: ?cl=departamento&me=visualizarDepartamento");
         }
         else{
-            $this->view="insertarMarca";
+            $this->view="insertarDepartamento";
             include 'lib/templates.php';
             
         }
     }
 }
-
-    
-    
 
 ?>

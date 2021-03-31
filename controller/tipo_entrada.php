@@ -1,39 +1,26 @@
 <?php
-class departamento extends Controller{
+class tipo_entrada extends Controller{
     function __construct()
     {
-        parent::__construct("departamento_m");
-        
+        parent::__construct("tipo_entrada_m");
+       
     }
+    function visualizar(){
 
-
-    function visualizarDepartamento(){
-        $this->title="Administracion de Departamentos";
-        $clase="departamento";
-        $metodoActualizar="actualizarDepartamento";
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
         $this->model->select_($filtros);
-        if (isset($this->model->buffer)){
-            $buffer=$this->model->buffer;
-        }
-        else{
-            $data=$this->model->data;
-        }
-       
-        $this->view="adminTemplates";
-        include 'lib/templates.php';
+
+        echo json_encode($this->model->data);
     }
-
-    function actualizarDepartamento(){
-        $this->title="Actualizar Departamento";
+    function actualizarTipo_activo(){
+        $this->title="Actualizar Tipo de activo";
         if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_departamento'=>$_GET['Id']];
+            $filtros=['id_tipo_activo'=>$_GET['Id']];
             $this->model->index_($filtros);
-
             $activo=$this->model->data;
             $this->model->select_($filtros);
             $activo_select=$this->model->data;
@@ -52,14 +39,14 @@ class departamento extends Controller{
         //     echo "</pre>";
         //     exit();
         }
-        $this->view="actualizarDepartamento";
+        $this->view="actualizarTipo_activo";
         include 'lib/templates.php';
         
     }
     function confirmarActualizacion(){
-        if(isset($_POST['ActualizarDepartamento'])){ 
+        if(isset($_POST['ActualizarTipo_activo'])){ 
             
-            unset($_POST['ActualizarDepartamento']);
+            unset($_POST['ActualizarTipo_activo']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -94,18 +81,32 @@ class departamento extends Controller{
         }
         
     
-        header("Location: ?cl=departamento&me=visualizarDepartamento");
+        header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
 
 
         
         
 
     }
-
+    function insertar(){
+        
+        if (isset($_POST['crear']) && !empty($_POST['crear'])){
+            unset($_POST['crear']);
+            // var_dump($_POST);
+            // exit();
+            $this->model->insert_($_POST);
+            header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
+        }
+        else{
+            $this->view="insertarTipo_activo";
+            include 'lib/templates.php';
+            
+        }
+    }
     function borrar(){
         $filtros=[];
         if(isset($_GET['Id'])){
-            $filtros['id_departamento']=$_GET['Id'];
+            $filtros['id_tipo_activo']=$_GET['Id'];
         }
        
         $this->model->delete_($filtros);
@@ -117,23 +118,11 @@ class departamento extends Controller{
             $this->response=$this->model->response;
             
         }
-        header("Location: ?cl=departamento&me=visualizarDepartamento");
+        header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
     }
-    function insertar(){
-        
-        if (isset($_POST['crear']) && !empty($_POST['crear'])){
-            unset($_POST['crear']);
-            // var_dump($_POST);
-            // exit();
-            $this->model->insert_($_POST);
-            header("Location: ?cl=departamento&me=visualizarDepartamento");
-        }
-        else{
-            $this->view="insertarDepartamento";
-            include 'lib/templates.php';
-            
-        }
-    }
-}
 
+
+    
+    
+}
 ?>

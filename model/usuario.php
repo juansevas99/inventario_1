@@ -9,15 +9,14 @@ class usuario_m extends model{
     } 
     
     public function select_($filtros){
-        $query="SELECT  * from users";
-        
+        $query="SELECT  * from usuario";
         $this->select($query,$filtros);
 
     }
 
 
     public function update_($valores,$filtros){
-        $query="UPDATE users SET ";
+        $query="UPDATE usuario SET ";
         $this->update($query,$valores,$filtros);
     }
     public function delete_($data){
@@ -25,10 +24,12 @@ class usuario_m extends model{
     }
     
     public function insert_($data){
-        $stmt=$this->dbo->prepare("INSERT INTO users (email_user,psw_user,name_user) VALUES (:email,:psw,:name_user)");
-        $stmt->bindParam(":email",$data['email_user'],PDO::PARAM_STR);
-        $stmt->bindParam(":psw",$data['psw_user'],PDO::PARAM_STR);
-        $stmt->bindParam(":name_user",$data['name_user'],PDO::PARAM_STR);
+        
+        $stmt=$this->dbo->prepare("INSERT INTO usuario (id_usuario,usuario,correo,password) VALUES (:id_usuario,:usuario,:correo,:password)");
+        $stmt->bindParam(":id_usuario",1,PDO::PARAM_STR);
+        $stmt->bindParam(":usuario",$data['email_user'],PDO::PARAM_STR);
+        $stmt->bindParam(":correo",$data['psw_user'],PDO::PARAM_STR);
+        $stmt->bindParam(":password",$data['name_user'],PDO::PARAM_STR);
         $stmt->execute();
 
         

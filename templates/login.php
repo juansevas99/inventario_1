@@ -16,8 +16,8 @@
                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
             </div>
             <p style="text-align:center"> OR  </p>
-            <input type="email" id="inputEmail" class="form-control" name="email_user" placeholder="Email address" required="" autofocus="">
-            <input type="password" id="inputPassword" class="form-control" name="psw_user" placeholder="Password" required="">
+            <input type="email" id="inputEmail" class="form-control" name="correo" placeholder="Email address" required="" autofocus="">
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required="">
             <input type="hidden" name ="login" value="sent">
             
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>

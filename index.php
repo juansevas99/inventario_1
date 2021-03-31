@@ -83,7 +83,7 @@ session_start();
         
     }  
     else{
-        ValidateClasss("activos","visualizarActivos");
+        include_once 'templates/index.html';
 
             
     }

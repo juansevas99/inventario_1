@@ -6,7 +6,7 @@ class constantes
 {
     protected $USER_LOCAL='root';
     protected $HOST_LOCAL='localhost';
-    protected $DBNAME='project_1';
+    protected $DBNAME='inventario_3_1';
     protected $PASSWORD_LOCAL='';
     protected $CHARSET='uf8mb4';
 

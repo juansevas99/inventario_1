@@ -7,7 +7,7 @@
         }
 
         function select_($filtros){
-            $query="SELECT id_marca	 as 'Id', codigo_marca as 'Codigo',nombre_marca as 'Nombre' FROM marca ";
+            $query="SELECT id_marca	 as 'Id',nombre as 'Nombre' FROM marca ";
             $this->select($query,$filtros);
         }
 

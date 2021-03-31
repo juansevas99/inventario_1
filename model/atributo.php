@@ -7,7 +7,7 @@
         }
 
         function select_($filtros){
-            $query="SELECT id_atributos as 'Id', code_atributos as 'Codigo' , nombre_atributos as 'Nombre' FROM atributos";
+            $query="SELECT id_atributo as 'Id', nombre_atributo as 'Codigo',medida_id_medida as 'Medida'  FROM atributo";
             $this->select($query,$filtros);
         }
         public function update_($valores,$filtros){

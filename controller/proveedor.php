@@ -5,25 +5,19 @@ class proveedor extends Controller{
         parent::__construct("proveedor_m");
         
     }
-    function visualizarProveedor(){
-        $this->title="Administracion de Proveedores";
-        $clase="proveedor";
-        $metodoActualizar="actualizarProveedor";
-        $filtros="";
+    function visualizar(){
+         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
         $this->model->select_($filtros);
-        if (isset($this->model->buffer)){
-            $buffer=$this->model->buffer;
-        }
-        else{
-            $data=$this->model->data;
-        }
+        
+
+        echo json_encode($this->model->data);
+    
        
-        $this->view="adminTemplates";
-        include 'lib/templates.php';
+      
     }
     function actualizarProveedor(){
         $this->title="Actualizar Proveedor";

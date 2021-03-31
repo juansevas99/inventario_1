@@ -7,7 +7,7 @@
         }
 
         function select_($filtros){
-            $query="SELECT id_proveedor as 'Id',	codigo_proveedor as 'Codigo',	nombreContacto_proveedor as 'Nombre de Contacto',	correo_proveedor as 'Correo',	telefono_proveedor  as 'Telefono' FROM proveedor ";
+            $query="SELECT id_proveedor as 'Id',	nombre_proveedor as 'Nombre',	correo  as 'Correo',	documento  as 'Documento', 'telefono' as 'Telefono' FROM proveedor ";
             $this->select($query,$filtros);
         }
 
