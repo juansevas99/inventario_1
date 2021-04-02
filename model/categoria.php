@@ -3,12 +3,12 @@
     class categoria_m extends model{
         function __construct(){
             parent::__construct();
-    
+            $this->table="categoria";
         }
 
-        function select_($filtros){
-            $query="SELECT id_categoria as 'Id', nombre_categoria as 'Nombre' FROM categoria";
-            $this->select($query,$filtros);
+        function select_($estructura,$filtros){
+            
+            $this->select($this->table,$estructura,$filtros);
         }
         public function update_($valores,$filtros){
             $query="UPDATE categoria SET ";

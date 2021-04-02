@@ -10,15 +10,20 @@ class usuario extends Controller
     }
     public function visualizar()
     {
+        $estructura=[
+           'usuario' => 'Nombre usuario',
+            'correo' => 'Correo'
+
+        ];
         $filtros = "";
         if (isset($_POST['send'])) { // En caso de que hayan filtros, se enviara un POST
             unset($_POST['send']);
             $filtros = $_POST;
         }
-        $this->model->select_($filtros);
+        $this->model->select_($estructura,$filtros);
         
-        $data=json_encode($this->model->data);
-        echo $data;
+        echo json_encode($this->model->data);
+        
         
 
     }

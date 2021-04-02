@@ -3,15 +3,16 @@
     class atributo_m extends model{
         function __construct(){
             parent::__construct();
+            $this->table="atributo";
     
         }
 
-        function select_($filtros){
-            $query="SELECT id_atributo as 'Id', nombre_atributo as 'Codigo',medida_id_medida as 'Medida'  FROM atributo";
-            $this->select($query,$filtros);
+        function select_($estructura,$filtros){
+            
+            $this->select($this->table,$estructura,$filtros);
         }
         public function update_($valores,$filtros){
-            $query="UPDATE atributos SET ";
+            $query="UPDATE atributo SET ";
             $this->update($query,$valores,$filtros);
         }
         public function delete_($filtros){

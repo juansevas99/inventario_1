@@ -1,14 +1,14 @@
-<?php
+<?php   
 
     class marca_m extends model{
         function __construct(){
             parent::__construct();
-    
+            $this->table="marca";
         }
 
-        function select_($filtros){
-            $query="SELECT id_marca	 as 'Id',nombre as 'Nombre' FROM marca ";
-            $this->select($query,$filtros);
+        function select_($estructura,$filtros){
+             
+            $this->select($this->table,$estructura,$filtros);
         }
 
 

@@ -4,6 +4,7 @@ class estad_m extends model {
     function __construct()
     {
         parent::__construct();
+         $this->table="estado";
     }
     public function select_($filtros){
         

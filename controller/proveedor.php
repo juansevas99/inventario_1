@@ -6,12 +6,18 @@ class proveedor extends Controller{
         
     }
     function visualizar(){
-         $filtros="";
+        $estructura=[
+        	'nombre_proveedor' => 'Nombre',
+            'correo'  => 'Correo',
+            'documento'  => 'Documento',
+            'telefono' => 'Telefono'];
+        
+        $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
-        $this->model->select_($filtros);
+        $this->model->select_($estructura,$filtros);
         
 
         echo json_encode($this->model->data);
@@ -19,6 +25,7 @@ class proveedor extends Controller{
        
       
     }
+    
     function actualizarProveedor(){
         $this->title="Actualizar Proveedor";
         if ($_GET['Id']){ //validar esta linea
@@ -83,7 +90,7 @@ class proveedor extends Controller{
         }
         
     
-        $this->visualizarProveedor();
+        $this->visualizar();
 
 
         

@@ -3,12 +3,11 @@
 class tipo_salida_m extends model{
     function __construct(){
         parent::__construct();
-
+        $this->table="tipo_salida";
     }
 
-    function select_($filtros){
-        $query="SELECT id_tipo_salida as 'Id',nombre_tipo_salida as 'Nombre' FROM tipo_salida";
-        $this->select($query,$filtros);
+    function select_($estructura,$filtros){
+        $this->select($this->table,$estructura,$filtros);
         }
 
 

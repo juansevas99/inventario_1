@@ -3,12 +3,11 @@
 class tipo_entrada_m extends model{
     function __construct(){
         parent::__construct();
-
+        $this->table="tipos_entrada";
     }
 
-    function select_($filtros){
-        $query="SELECT id_tipos_entrada as 'Id', nomnre_tipos_entrada as 'Nombre' FROM tipos_entrada";
-        $this->select($query,$filtros);
+    function select_($estructura,$filtros){
+        $this->select($this->table,$estructura,$filtros);
         }
 
 

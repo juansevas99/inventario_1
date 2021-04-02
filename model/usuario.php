@@ -5,12 +5,12 @@ class usuario_m extends model{
     function __construct()
     {
         parent::__construct();
+        $this->table="usuario";
         
     } 
     
-    public function select_($filtros){
-        $query="SELECT  * from usuario";
-        $this->select($query,$filtros);
+    public function select_($estructura,$filtros){
+        $this->select($this->table,$estructura,$filtros);
 
     }
 

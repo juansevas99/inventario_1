@@ -1,24 +1,41 @@
 <?php
 class formatearConsulta{
-    function select ($filtros){
-        $query="";
+    function select ($table,$estructura,$filtros){
+        $show=[];
+        if($estructura){
+            
+            // foreach ($estructura as $key => $value) {
+            //     $show.=$key.' as "'.$value.'" ';
+            // }
+            
+            $show=array_map(function($keys,$valores){
+                return $keys." as '".$valores."'";
+            },array_keys($estructura),array_values($estructura));
+            
+            $show=implode(',',$show);
+            
+        }
+        
+        
+        $where="";
         if ($filtros){
             $i=0;
             foreach ($filtros as $key => $value) {
                 if(!empty($value)){
                     if($i==0){
-                        $query.=' where '.$key."= :".$key;
+                        $where.=' where '.$key."= :".$key;
                     }
                     else{
-                        $query.=" and ".$key."= :".$key;
+                        $where.=" and ".$key."= :".$key;
                     }
                     $i++;
                 }
             }
         }
+
         // echo $query;
         // exit();
-       return $query;
+        return "SELECT ".$show." from ".$table." ".$where;
     }
     function update($valores,$filtros){
         $query="";

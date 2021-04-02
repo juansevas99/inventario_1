@@ -1,34 +1,33 @@
 <?php
 
-    class medida_m extends model{
+    class rol_m extends model{
         function __construct(){
             parent::__construct();
-             $this->table="medida";
-    
+            $this->table="rol";
         }
 
         function select_($estructura,$filtros){
-            
+              
             $this->select($this->table,$estructura,$filtros);
         }
 
 
         public function update_($valores,$filtros){
-            $query="UPDATE medida SET ";
+            $query="UPDATE rol SET ";
             $this->update($query,$valores,$filtros);
         }
         public function delete_($filtros){
-            
-            $query="DELETE FROM medida";
+            $query="DELETE FROM rol";
             $this->delete($query,$filtros);
+            
         }
         public function insert_($filtros){
-            $query="INSERT INTO medida (codigo_medida, nombre_medida) values ( ";
-            $this->insert($query,$filtros);
+            $query="INSERT INTO rol (rol_id, rol_nombre) values ( ";
             
+            $this->insert($query,$filtros);         
     }
     public function index_($filtros){
-        $query="SELECT * FROM medida";
+        $query="SELECT * FROM rol";
     $this->select($query,$filtros);
     } 
     }

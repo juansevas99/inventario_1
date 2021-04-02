@@ -1,17 +1,18 @@
 <?php
-class categoria extends Controller{
+
+class rol extends Controller{
     public function __construct()
     {
-        parent::__construct("categoria_m");
+        parent::__construct("rol_m");
         
     }
 
 
     function visualizar(){
         $estructura=[
-            'id_categoria' => 'Id',
-             'nombre_categoria' => 'Nombre'
+            	'rol' => 'Rol'
         ];
+
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
@@ -24,7 +25,6 @@ class categoria extends Controller{
     }
 
     function actualizarDepartamento(){
-        $this->title="Actualizar Departamento";
         if ($_GET['Id']){ //validar esta linea
             $filtros=['id_departamento'=>$_GET['Id']];
             $this->model->index_($filtros);
@@ -130,4 +130,3 @@ class categoria extends Controller{
         }
     }
 }
-?>

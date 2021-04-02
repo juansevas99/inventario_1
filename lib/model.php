@@ -5,8 +5,7 @@ class model extends conn implements iadministracion{
     function update($query,$valores,$filtros){
         $formatear=new formatearConsulta();
         $query.=$formatear->update($valores,$filtros);
-        // echo $query;
-        //     exit();
+       
     
       $this->prepararSentencia_update($query,$valores,$filtros);
         if($this->stmt){
@@ -37,10 +36,11 @@ public function insert($query,$filtros){
 
 } 
 
-public function select($query,$filtros){
+public function select($table,$estructura,$filtros){
     $formatear=new formatearConsulta();
-        $query.=$formatear->select($filtros);
-        // var_dump($query);
+        $query=$formatear->select($table,$estructura,$filtros);
+        // echo json_encode($query);
+        
         $this->prepararSentencia($query,$filtros);
         
     

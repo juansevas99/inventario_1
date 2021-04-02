@@ -3,12 +3,13 @@
     class proveedor_m extends model{
         function __construct(){
             parent::__construct();
+            $this->table="proveedor";
     
         }
 
-        function select_($filtros){
-            $query="SELECT id_proveedor as 'Id',	nombre_proveedor as 'Nombre',	correo  as 'Correo',	documento  as 'Documento', 'telefono' as 'Telefono' FROM proveedor ";
-            $this->select($query,$filtros);
+        function select_($estructura,$filtros){
+            
+            $this->select($this->table,$estructura,$filtros);
         }
 
 
