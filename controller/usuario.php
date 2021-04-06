@@ -53,6 +53,12 @@ class usuario extends Controller
     }
     public function login()
     {
+        $estructura=[
+            'usuario' => 'usuario',
+             'correo' => 'correo',
+             'password'=>'password'
+ 
+         ];
         $filtros = "";
         if (isset($_POST['login'])) {
             unset($_POST['login']);
@@ -60,12 +66,8 @@ class usuario extends Controller
         }
         // var_dump($filtros);
         // exit();
-        $this->model->select_($filtros);
-        if (isset($this->model->buffer)) {
-            $buffer = $this->model->buffer;
-            
-        } else {
-            
+        $this->model->select_($estructura,$filtros);
+        
             if (isset($this->model->data) && !empty($this->model->data)) {
                 $data = $this->model->data;
                 // session_start();
@@ -77,7 +79,7 @@ class usuario extends Controller
                 // mail("juansevas992010@gmail.com","Alerta de entrada",$mensaje,"Alerta de entrada desde el aplicativo Deposito");
                 // var_dump($_SESSION);
                 // exit();
-            }
+            
             // var_dump();
             // exit();
             header("Location: index.php");

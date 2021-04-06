@@ -26,6 +26,7 @@ class proveedor extends Controller{
       
     }
     
+    
     function actualizarProveedor(){
         $this->title="Actualizar Proveedor";
         if ($_GET['Id']){ //validar esta linea

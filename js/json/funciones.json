@@ -11,8 +11,8 @@
     },
     {
         "funcion_id":"3",
-        "funcion_nombre":"Stock",
-        "funcion_ruta":"stock.html"
+        "funcion_nombre":"Productos",
+        "funcion_ruta":"productos.html"
     },
     {
         "funcion_id":"4",
