@@ -122,7 +122,6 @@ function crearProducto(){
 // --------------------------------------------------------------------------------------------------------------
 
 function funciones(e){ // Carga de funciones
-  
         fetch('js/json/funciones.json')
         .then(
             result=>{
@@ -135,10 +134,10 @@ function funciones(e){ // Carga de funciones
                 let cadena=""
                 for (let r in result){
                     // console.log(r)
-                    cadena+="<li><a data-funcion="+result[r].funcion_ruta+" href='#'>"+result[r].funcion_nombre+"</a></li>"
+                    cadena+="<li><a  href="+result[r].funcion_ruta+">"+result[r].funcion_nombre+"</a></li>"
                 }
                 e.innerHTML=cadena
-
+                
                 d.querySelectorAll('[data-funcion]').forEach(e=>{
                     console.log(e)
                     e.addEventListener('click',()=>{
@@ -226,13 +225,13 @@ function cargarFunciones(ruta,e){
 
 d.addEventListener('DOMContentLoaded', () => {
     
-    let data=d.querySelectorAll("[data-content]")
-    data.forEach(e=>{
-        let ruta=e.dataset.content
+    // let data=d.querySelectorAll("[data-content]")
+    // data.forEach(e=>{
+    //     let ruta=e.dataset.content
 
-        cargarFunciones(ruta,e);
+    //     cargarFunciones(ruta,e);
 
-    });
+    // });
 
 
 

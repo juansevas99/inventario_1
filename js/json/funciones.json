@@ -2,27 +2,27 @@
     {
         "funcion_id":"1",
         "funcion_nombre":"Administracion",
-        "funcion_ruta":"administration.html"
+        "funcion_ruta":"index.php?cl=rutas&me=administracion"
     },
     {
         "funcion_id":"2",
         "funcion_nombre":"Planeacion de compra",
-        "funcion_ruta":"planeacionCompra.html"
+        "funcion_ruta":"index.php?cl=rutas&me=planeacion"
     },
     {
         "funcion_id":"3",
         "funcion_nombre":"Productos",
-        "funcion_ruta":"productos.html"
+        "funcion_ruta":"index.php?cl=rutas&me=productos"
     },
     {
         "funcion_id":"4",
         "funcion_nombre":"Ordenes y salidas de inventario",
-        "funcion_ruta":"reportes.html"
+        "funcion_ruta":"index.php?cl=rutas&me=reportes"
     },
     {
         "funcion_id":"4",
         "funcion_nombre":"visualizar Inventario",
-        "funcion_ruta":"visualizarStock.html"
+        "funcion_ruta":"index.php?cl=rutas&me="
     }
    
   

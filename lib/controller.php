@@ -5,10 +5,19 @@ class Controller {
     public function __construct($model)
 
     {
-
-        $this->model=new $model;
-         
+        $modelRuta="model/".$model.".php";
+        if (file_exists($modelRuta)){
+            include $modelRuta;
+            $this->model=new $model;
+           
+             
+        }
+        $this->view=new view();
+        
          
     } 
+    
+
+    
 }
 ?>

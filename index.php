@@ -5,19 +5,21 @@ include_once 'lib/iadministrion.php';
 include_once 'lib/formatearConsulta.php';
 include_once 'lib/model.php';
 include_once 'lib/factoryModel.php';
+include_once 'lib/view.php';
 
 spl_autoload_register(function ($class_name){
     $file_controller='controller/'.$class_name.'.php';// Relacion  de controlador y modelo uno a uno
-    $file_model='model/'.$class_name.'.php';
-    if (file_exists($file_controller) && file_exists($file_model)){
+    // $file_model='model/'.$class_name.'.php';
+    if (file_exists($file_controller)){
         include_once $file_controller;
-        include_once $file_model;
         
         
         
     }
     else{
-        return false;
+        
+        include 'templates/error.php';
+        exit();
     }
 });
 
@@ -83,7 +85,8 @@ session_start();
         
     }  
     else{
-        include_once 'templates/index.html';
+        
+        ValidateClasss("rutas","productos");
 
             
     }
