@@ -82,8 +82,9 @@ class usuario extends Controller
             
             // var_dump();
             // exit();
-            header("Location: index.php");
+           
         }
+         header("Location: index.php");
     }
 
 
