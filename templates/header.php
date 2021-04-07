@@ -14,36 +14,26 @@
 </head>
 
 <body>
-    <header class="navbar bg-success"  data-content="header.html" >
-        <div class="container" style="position: relative;">
-            <div class="container-fluid">
-                <div class="navbar-brand">LOGO</div>
-                <div class="nav">
-                    <div class=" dropdown">
-                        <a class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Perfil
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="">Configuracion de usuario</a>
-                            <a class="dropdown-item" href="?cl=usuario&me=cerrarSesion">Cerrar sesion</a>
-                        </div>
-
+    <header class="navbar bg-success" data-content="header.html">
+        <div class="container-fluid">
+            <div class="navbar-brand">LOGO</div>
+            <div class="nav">
+                <div class=" dropdown">
+                    <a class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Perfil
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="">Configuracion de usuario</a>
+                        <a class="dropdown-item" href="?cl=usuario&me=cerrarSesion">Cerrar sesion</a>
                     </div>
-                    <div><a class="nav-link" href="">Ayuda</a></div>
 
                 </div>
-                <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
-                </button>
-
-
-
-
-
-
-
+                <div><a class="nav-link" href="">Ayuda</a></div>
 
             </div>
+            <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
+            </button>
 
         </div>
     </header>
