@@ -13,9 +13,9 @@
 
             <div class="d-block d-lg-flex justify-content-between">
                 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Crear Registro
-                </button>
+                <a href="index.php?cl=producto&me=crear" class="btn btn-primary" >
+                    Crear Producto
+                </a>
                 <div class="d-flex align-items-center">
                     
                     <button class="btn">Otros Filtros</button>

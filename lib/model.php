@@ -29,6 +29,8 @@ public function insert($query,$filtros){
     $formatear=new formatearConsulta();
     $query.=$formatear->insert($filtros);
     $query.=" )";
+    // echo $query;
+    // exit();
     // var_dump($query);
     // exit();
     $this->prepararSentencia($query,$filtros);

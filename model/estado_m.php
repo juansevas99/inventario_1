@@ -1,17 +1,14 @@
 <?php
-class estad_m extends model {
+class estado_m extends model {
     public $data=[];
     function __construct()
     {
         parent::__construct();
          $this->table="estado";
     }
-    public function select_($filtros){
+    public function select_($estructura,$filtros){        
         
-        $query="SELECT id_estado as 'Id', nombre_estado as 'Nombre' from estado";
-        
-        
-        $this->select($query,$filtros);
+        $this->select($this->table,$estructura,$filtros);
         }
 
 
@@ -30,7 +27,7 @@ class estad_m extends model {
         public function index_($filtros){
             $query="SELECT * from estado";
 
-        $this->select($query,$filtros);
+        // $this->select($query,$filtros);
         }
     
 }

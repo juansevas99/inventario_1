@@ -22,7 +22,7 @@ class producto_m extends model{
         $this->delete($query,$filtros);
     }
     public function insert_($filtros){
-        $query="INSERT INTO producto (codigo_producto, nombre_producto) values ( ";
+        $query="INSERT INTO producto (referencia_producto, nombre_producto,estado_id_estado, categoria_id_categoria,proveedor_id_proveedor ,marca_id_marca) values ( ";
         $this->insert($query,$filtros);
         
 }

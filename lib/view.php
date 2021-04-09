@@ -5,7 +5,7 @@ class view{
     $this->aside="templates/aside.php";
     $this->footer="templates/footer.php";
  }
- public function render($vista,$variable){
+ public function render($vista,$titulo){
     include $this->header;
     include $this->aside;
     include "templates/".$vista.".php";

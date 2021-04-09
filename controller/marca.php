@@ -8,6 +8,7 @@ class marca extends Controller{
 
     function visualizar(){
         $estructura=[
+            'id_marca'=> 'Id',
             'nombre' => 'Nombre'
         ];
         $filtros="";

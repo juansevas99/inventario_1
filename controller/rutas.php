@@ -12,6 +12,17 @@ class rutas extends Controller{
         $variable="This was passed as a variable";
         $this->view->render("producto",$variable);
     }
+    public function planeacion(){
+        $variable="Planeacion de compra";
+        $this->view->render("planeacion",$variable);
+    }
+    public function reportes(){
+        $variable="Reportes";
+        $this->view->render("reportes",$variable);
+    }
+
+
+
 
 }
 ?>
