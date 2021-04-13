@@ -29,3 +29,5 @@ class ordenCompra extends Controller{
 
     }
 }
+
+?>

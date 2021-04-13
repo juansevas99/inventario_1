@@ -1,6 +1,6 @@
 <div id="contenido" class="col">
     <main id="administracion" class="text-center  m-3">
-        <div class="navbar navbar-expand-lg ">
+        <div class="navbar navbar-expand-xl ">
             <div>
                 <h4>Administracion</h4>
             </div>
@@ -18,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link" data-ruta="tipo_salida" href="#">Tipo de salida</a></li>
                     <li class="nav-item"><a class="nav-link" data-ruta="tipo_entrada" href="#">Tipo de entrada</a></li>
                     <li class="nav-item"><a class="nav-link" data-ruta="producto" href="#">Productos</a></li>
-
+                    <li class="nav-item"><a class="nav-link" data-ruta="ordenCompra" href="#">Orden Compra</a></li>
                     <li class="nav-item"><a class="nav-link" data-ruta="categoria" href="#">Categoria de Productos</a></li>
                     <li class="nav-item"><a class="nav-link" data-ruta="rol" href="#">Roles</a></li>
                 </ul>

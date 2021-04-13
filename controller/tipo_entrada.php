@@ -7,7 +7,8 @@ class tipo_entrada extends Controller{
     }
     function visualizar(){
         $estructura=[
-         'nomnre_tipos_entrada' => 'Tipo de Entrada'
+        'id_tipos_entrada'=>'Id',
+         'nomnre_tipos_entrada' => 'Tipos'
 
         ];
         $filtros="";

@@ -331,8 +331,30 @@ function gestionInventario(){
         }
     ).then(
         response=>{
-            
-            display(response);
+                    
+                    $cabecera=document.querySelector('#tabla-admin > .cabecera')
+            $cadenaCabecera="";
+            for (let i = 0; i < Object.keys(response[0]).length; i++) {
+                
+                $cadenaCabecera+="<th>"+Object.keys(response[0])[i]+"</th>"
+            }
+            $cadenaCabecera+="<th colspan=3>Accciones</th>";
+            $cabecera.innerHTML=$cadenaCabecera
+            $cuerpo=document.querySelector('#tabla-admin > .cuerpo')
+            $cadenaCuerpo=""
+            for (let j = 0; j < response.length; j++) {
+                $cadenaCuerpo+="<tr>";
+                for (let k = 0; k < Object.keys(response[j]).length; k++) {
+                    
+                    $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
+                }
+                
+                $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='index.php?cl=entradas&me=crear' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='index.php?cl=salidas&me=crear' class='btn btn-warning'>Gestionar Salidas</a></td></tr>";
+
+                
+            }
+
+            $cuerpo.innerHTML=$cadenaCuerpo
         }
     ).catch(
         err=>{
@@ -341,6 +363,72 @@ function gestionInventario(){
     )
 }
 
+function crearEntrada(){
+    document.querySelector('[name="tipos_entrada_id_tipos_entrada"]').addEventListener('focus',()=>{
+        fetch('index.php?cl=tipo_entrada&me=visualizar')
+        .then(
+            response=>{
+                if (response.ok==false || response.status>299){
+                    return Promise.reject({err:"Error, no se encontro el archivo"})   
+                }
+                return response.json();
+            }
+        )   
+        .then(
+            response=>{
+                options="";
+                
+                for (let i = 0; i < response.length; i++) {
+                    
+                    options+="<option value="+response[i].Id+">"+response[i].Tipos+"</option>"
+                    
+                }
+
+                document.querySelector('[name="tipos_entrada_id_tipos_entrada"]').innerHTML=options;
+                
+            }
+        )
+              
+        .catch(
+            err=>{
+                console.error("Error Servidor !!"+err.err);
+            }
+        );
+    });
+}
+function crearSalida(){
+    document.querySelector('[name="id_tipo_salida"]').addEventListener('focus',()=>{
+        fetch('index.php?cl=tipo_salida&me=visualizar')
+        .then(
+            response=>{
+                if (response.ok==false || response.status>299){
+                    return Promise.reject({err:"Error, no se encontro el archivo"})   
+                }
+                return response.json();
+            }
+        )   
+        .then(
+            response=>{
+                options="";
+                
+                for (let i = 0; i < response.length; i++) {
+                    
+                    options+="<option value="+response[i].Id+">"+response[i].Tipos+"</option>"
+                    
+                }
+
+                document.querySelector('[name="id_tipo_salida"]').innerHTML=options;
+                
+            }
+        )
+              
+        .catch(
+            err=>{
+                console.error("Error Servidor !!"+err.err);
+            }
+        );
+    });
+}
 d.addEventListener('DOMContentLoaded',()=>{
    
 
@@ -384,6 +472,14 @@ d.addEventListener('DOMContentLoaded',()=>{
     else if (document.getElementById('gestionInventario')){
         
         gestionInventario();
+    }
+    else if (document.getElementById('crearEntrada')){
+        
+        crearEntrada();
+    }
+    else if (document.getElementById('crearSalida')){
+        
+        crearSalida();
     }
 })
 

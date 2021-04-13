@@ -7,7 +7,8 @@ class tipo_salida extends Controller{
     }
     function visualizar(){
         $estructura=[
-        'nombre_tipo_salida' => 'Tipo de Salidas'
+        'id_tipo_salida'=>'Id',
+        'nombre_tipo_salida' => 'Tipos'
         ];
         $filtros="";
         if (isset($_POST['send'])){
