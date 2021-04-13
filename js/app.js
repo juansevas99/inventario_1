@@ -318,9 +318,31 @@ function planeacion(){
         );
     });
 }
+function gestionInventario(){
+    fetch('index.php?cl=ordenCompra&me=visualizar',{
+        method:"GET"
+    }).then(
+
+        response=>{
+            if (response.ok==false || response.status>299){
+                return Promise.reject({err:"Error, no se encontro el archivo"})   
+            response[0]}
+            return response.json();
+        }
+    ).then(
+        response=>{
+            
+            display(response);
+        }
+    ).catch(
+        err=>{
+            console.error(err)
+        }
+    )
+}
 
 d.addEventListener('DOMContentLoaded',()=>{
-    
+   
 
     if (document.getElementById('administracion')){
         document.querySelector('#tabla-admin > .cabecera').innerHTML="Extrayendo Datos del servidor ..."; 
@@ -358,6 +380,10 @@ d.addEventListener('DOMContentLoaded',()=>{
     }
     else if (document.getElementById('planeacion')){
         planeacion()
+    }
+    else if (document.getElementById('gestionInventario')){
+        
+        gestionInventario();
     }
 })
 

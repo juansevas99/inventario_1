@@ -20,6 +20,10 @@ class rutas extends Controller{
         $variable="Reportes";
         $this->view->render("reportes",$variable);
     }
+    public function ordenCompra(){
+        $variable="Gestion de inventario";
+        $this->view->render("gestionInventario",$variable);
+    }
 
 
 

@@ -7,6 +7,7 @@
                 <li class="nav-link"><a href="index.php?cl=rutas&me=administracion" data-funcion="">Administracion</a></li>
                 <li class="nav-link"><a href="index.php?cl=rutas&me=planeacion" data-funcion="">Planeacion</a></li>
                 <li class="nav-link"><a href="index.php?cl=rutas&me=productos" data-funcion="">Stock</a></li>
+                <li class="nav-link"><a href="index.php?cl=rutas&me=ordenCompra" data-funcion="">Gestion Inventario</a></li>
                 <li class="nav-link"><a href="index.php?cl=rutas&me=reportes" data-funcion="">Reportes</a></li>
         
             </ul>

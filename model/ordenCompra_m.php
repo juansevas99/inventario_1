@@ -3,7 +3,7 @@
     class medida_m extends model{
         function __construct(){
             parent::__construct();
-             $this->table="medida";
+             $this->table="ordencompra";
     
         }
 
@@ -14,16 +14,16 @@
 
 
         public function update_($valores,$filtros){
-            $query="UPDATE medida SET ";
+            $query="UPDATE ordencompra SET ";
             $this->update($query,$valores,$filtros);
         }
         public function delete_($filtros){
             
-            $query="DELETE FROM medida";
+            $query="DELETE FROM ordencompra";
             $this->delete($query,$filtros);
         }
         public function insert_($filtros){
-            $query="INSERT INTO medida (codigo_medida, nombre_medida) values ( ";
+            $query="INSERT INTO ordencompra (codigo_ordencompra, nombre_ordencompra) values ( ";
             $this->insert($query,$filtros);
             
     }

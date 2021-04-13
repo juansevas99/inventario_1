@@ -10,6 +10,7 @@ include_once 'lib/view.php';
 spl_autoload_register(function ($class_name){
     $file_controller='controller/'.$class_name.'.php';// Relacion  de controlador y modelo uno a uno
     // $file_model='model/'.$class_name.'.php';
+  
     if (file_exists($file_controller)){
         include_once $file_controller;
         
@@ -18,7 +19,7 @@ spl_autoload_register(function ($class_name){
     }
     else{
         
-        include 'templates/error.php';
+        include_once 'templates/error.php';
         exit();
     }
 });

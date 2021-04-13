@@ -1,6 +1,6 @@
        
 <div id="contenido" class="col">
-    <main id="administracion" class="m-3">        
+    <main id="planeacion" class="m-3">        
             <h1>
 
                 <?php
