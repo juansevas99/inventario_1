@@ -1,26 +1,27 @@
 <div id="contenido" class="col">
     <main id="administracion" class="text-center  m-3">
-        <div class="navbar navbar-expand-xl ">
-            <div>
+            <div class="text-left">
                 <h4>Administracion</h4>
             </div>
+        <div class="navbar navbar-expand-xl justify-content-end ">
+            
             <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#Items" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
             </button>
 
             <div class="collapse navbar-collapse" id="Items">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" data-ruta="usuario" href="#">Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="proveedor" href="#">Proveedores</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="marca" href="#">Marcas</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="atributo" href="#">Atributos</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="medida" href="#">Medida</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="tipo_salida" href="#">Tipo de salida</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="tipo_entrada" href="#">Tipo de entrada</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="producto" href="#">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="ordenCompra" href="#">Orden Compra</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="categoria" href="#">Categoria de Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" data-ruta="rol" href="#">Roles</a></li>
+                    <a class="btn btn-light" style="color: black;" data-ruta="usuario" href="#">Usuarios</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="proveedor" href="#">Proveedores</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="marca" href="#">Marcas</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="atributo" href="#">Atributos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="medida" href="#">Medida</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="tipo_salida" href="#">Tipo de salida</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="tipo_entrada" href="#">Tipo de entrada</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="producto" href="#">Productos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="ordenCompra" href="#">Orden Compra</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="categoria" href="#">Categoria de Productos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="rol" href="#">Roles</a>
                 </ul>
             </div>
         </div>

