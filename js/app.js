@@ -429,6 +429,47 @@ function crearSalida(){
         );
     });
 }
+
+function reportes(element){
+    fetch('index.php?cl=reportes&me='+element,{
+        method:"POST"
+    }).then(
+
+        response=>{
+            if (response.ok==false || response.status>299){
+                return Promise.reject({err:"Error, no se encontro el archivo json"})   
+            response[0]}
+            return response.json();
+        }
+    ).then(
+        response=>{
+                $cabecera=document.querySelector('#tabla-admin > .cabecera')
+                $cadenaCabecera="";
+                for (let i = 0; i < Object.keys(response[0]).length; i++) {
+                    
+                    $cadenaCabecera+="<th>"+Object.keys(response[0])[i]+"</th>"
+                }
+                $cabecera.innerHTML=$cadenaCabecera
+                $cuerpo=document.querySelector('#tabla-admin > .cuerpo')
+                $cadenaCuerpo=""
+                for (let j = 0; j < response.length; j++) {
+                    $cadenaCuerpo+="<tr>";
+                    for (let k = 0; k < Object.keys(response[j]).length; k++) {
+                        
+                        $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
+                    }
+                    
+        
+    }
+
+    $cuerpo.innerHTML=$cadenaCuerpo
+        }
+    ).catch(
+        err=>{
+            console.error(err)
+        }
+    )
+}
 d.addEventListener('DOMContentLoaded',()=>{
    
 
@@ -480,6 +521,15 @@ d.addEventListener('DOMContentLoaded',()=>{
     else if (document.getElementById('crearSalida')){
         
         crearSalida();
+    }
+    else if (document.getElementById('reportes')){
+        document.querySelectorAll('[data-reporte]').forEach(e=>{
+            e.addEventListener('click',(element)=>{
+
+                    reportes(element.currentTarget.getAttribute('data-reporte'));
+            })
+    })
+        
     }
 })
 

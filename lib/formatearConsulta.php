@@ -15,6 +15,9 @@ class formatearConsulta{
             $show=implode(',',$show);
             
         }
+        else {
+            $show=" * ";
+        }
         
         
         $where="";

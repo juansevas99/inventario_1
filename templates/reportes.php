@@ -10,14 +10,27 @@
 
             <div class="collapse navbar-collapse" id="Items">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" data-reporte="usuario" href="#">Ventas</a></li>
-                    <li class="nav-item"><a class="nav-link" data-reporte="proveedor" href="#">Ordenes de Compra</a></li>
-                    <li class="nav-item"><a class="nav-link" data-reporte="marca" href="#">Mas Vendidos</a></li>
-                    <li class="nav-item"><a class="nav-link" data-reporte="atributo" href="#">Entradas</a></li>
-                    <li class="nav-item"><a class="nav-link" data-reporte="medida" href="#">Salidas</a></li>
+                    <a class="nav-link btn btn-light" data-reporte="kardex" href="#">Kardex</a>
+                    <a class="nav-link btn btn-light" data-reporte="ordenes" href="#">Ordenes de Compra</a>
+                    <a class="nav-link btn btn-light" data-reporte="masVendidos" href="#">Mas Vendidos</a>
+                    <a class="nav-link btn btn-light" data-reporte="entradas" href="#">Entradas</a>
+                    <a class="nav-link btn btn-light" data-reporte="salidas" href="#">Salidas</a>
                 </ul>
             </div>
         </div>
+
+        <div style="overflow-x: scroll;">
+                <table id="tabla-admin" class="table my-3">
+                    <thead class="cabecera">
+
+                    </thead>
+
+                    <tbody class="cuerpo">
+
+
+                    </tbody>
+                </table>
+            </div>
 
     </main>
     </div>
