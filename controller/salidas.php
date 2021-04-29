@@ -35,11 +35,11 @@ class salidas extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=ordez&me=visualizarDepartamento");
+            header("Location: ?cl=rutas&me=ordencompra");
         }
         else{
-            $title="Creacion de salidas";
-            $this->view->render("crearSalida",$title);
+            $variables=["titulo"=>"Creacion de salidas","referencia"=>$_GET["id"]];
+            $this->view->render("crearSalida",$variables);
             
         }
     }

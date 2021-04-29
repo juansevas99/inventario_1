@@ -124,13 +124,9 @@ class atributo extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=atributo&me=visualizarAtributos");
-        }
-        else{
-            $this->view="insertarAtributo";
-            include 'lib/templates.php';
-            
-        }
+            header("Location:index.php?cl=rutas&me=administracion");       
+         }
+        
     }
 }
 

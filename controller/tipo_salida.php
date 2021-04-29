@@ -98,13 +98,9 @@ class tipo_salida extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
+            header("Location:index.php?cl=rutas&me=administracion"); 
         }
-        else{
-            $this->view="insertarTipo_activo";
-            include 'lib/templates.php';
-            
-        }
+       
     }
     function borrar(){
         $filtros=[];

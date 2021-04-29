@@ -23,7 +23,7 @@
             $this->delete($query,$filtros);
         }
         public function insert_($filtros){
-            $query="INSERT INTO medida (codigo_medida, nombre_medida) values ( ";
+            $query="INSERT INTO medida (nombre_medida) values ( ";
             $this->insert($query,$filtros);
             
     }

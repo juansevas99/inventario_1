@@ -33,7 +33,7 @@
      public function productoView(){
         header('Location: templates/productos.html');
     }
-    public function crear(){
+    public function insertar(){
      
         
         if (isset($_POST['crear'])){

@@ -22,10 +22,10 @@
             $query="INSERT INTO categoria (nombre_categoria) values ( ";
             $this->insert($query,$filtros);
     }
-    public function index_($filtros){
-        $query="SELECT * FROM categoria";
-    $this->select($query,$filtros);
-    }
+    // public function index_($filtros){
+    //     $query="SELECT * FROM categoria";
+    // $this->select($query,$filtros);
+    // }
     }
     
 ?>

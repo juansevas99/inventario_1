@@ -121,12 +121,8 @@ class rol extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=departamento&me=visualizarDepartamento");
-        }
-        else{
-            $this->view="insertarDepartamento";
-            include 'lib/templates.php';
-            
-        }
+            header("Location:index.php?cl=rutas&me=administracion"); 
+                }
+       
     }
 }

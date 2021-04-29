@@ -20,4 +20,15 @@ class medida extends Controller{
 
 
     }
+    function insertar(){
+        
+        if (isset($_POST['crear']) && !empty($_POST['crear'])){
+            unset($_POST['crear']);
+            // var_dump($_POST);
+            // exit();
+            $this->model->insert_($_POST);
+            header("Location:index.php?cl=rutas&me=administracion"); 
+                }
+       
+    }
 }

@@ -22,7 +22,8 @@ class estado_m extends model {
 
         }
         public function insert_($data){
-            
+            $query="INSERT INTO detalle_entradas (cantidad,observaciones,id_orden_compra,tipos_entrada_id_tipos_entrada) values ( ";
+            $this->insert($query,$data);
         }
         public function index_($filtros){
             $query="SELECT * from estado";

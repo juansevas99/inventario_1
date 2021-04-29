@@ -124,13 +124,9 @@ class proveedor extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=proveedor&me=visualizarProveedor");
-        }
-        else{
-            $this->view="insertarProveedor";
-            include 'lib/templates.php';
-            
-        }
+            header("Location:index.php?cl=rutas&me=administracion"); 
+                }
+       
     }
 }
 

@@ -20,13 +20,13 @@
             $this->delete($query,$filtros);
         }
         public function insert_($filtros){
-            $query="INSERT INTO atributos (code_atributos, nombre_atributos) values ( ";
+            $query="INSERT INTO atributo (nombre_atributo) values ( ";
             $this->insert($query,$filtros);
     }
-    public function index_($filtros){
-        $query="SELECT * FROM atributos";
-    $this->select($query,$filtros);
-    }
+    // public function index_($filtros){
+    //     $query="SELECT * FROM atributos";
+    // $this->select($query,$filtros);
+    // }
     }
     
 ?>

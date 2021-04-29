@@ -21,11 +21,11 @@ class tipo_salida_m extends model{
         }
  
     public function insert_($filtros){
-        $query="INSERT INTO tipo_salida (code_tipo_salida, nombre_tipo_salida) values ( ";
+        $query="INSERT INTO tipo_salida (nombre_tipo_salida) values ( ";
         $this->insert($query,$filtros);         
     }
-    public function index_($filtros){
-            $query="SELECT * FROM tipo_salida";
-        $this->select($query,$filtros);
-        } 
+    // public function index_($filtros){
+    //         $query="SELECT * FROM tipo_salida";
+    //     $this->select($query,$filtros);
+    //     } 
 }

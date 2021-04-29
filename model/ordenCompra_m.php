@@ -23,13 +23,14 @@
             $this->delete($query,$filtros);
         }
         public function insert_($filtros){
-            $query="INSERT INTO ordencompra (codigo_ordencompra, nombre_ordencompra) values ( ";
+            
+            $query="INSERT INTO ordencompra (cantidad,precioUnitario,producto_id_producto,proveedor_id_proveedor) values ( ";
             $this->insert($query,$filtros);
             
     }
-    public function index_($filtros){
-    $this->select($query,$filtros);
-    } 
+    // public function index_($filtros){
+    // $this->select($query,$filtros);
+    // } 
     }
     
 ?>

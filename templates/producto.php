@@ -13,7 +13,7 @@
 
             <div class="d-block d-lg-flex justify-content-between">
                 
-                <a href="index.php?cl=producto&me=crear" class="btn btn-primary" >
+                <a href="index.php?cl=producto&me=insertar" class="btn btn-primary" >
                     Crear Producto
                 </a>
                 <div class="d-flex align-items-center">

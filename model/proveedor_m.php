@@ -23,7 +23,7 @@
             
         }
         public function insert_($filtros){
-            $query="INSERT INTO proveedor (codigo_proveedor, nombreContacto_proveedor,correo_proveedor,telefono_proveedor) values ( ";
+            $query="INSERT INTO proveedor (nombre_proveedor,correo,documento,telefono) values ( ";
             
             $this->insert($query,$filtros);         
     }

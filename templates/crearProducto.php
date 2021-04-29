@@ -7,15 +7,11 @@
         ?>
     </h1>
 
-    <form action="index.php?cl=producto&me=crear" method="POST">
+    <form action="index.php?cl=producto&me=insertar" method="POST">
 
         <br>
         <br>
-        <div class="form-group">
-
-            <label for="">Imagen de producto</label>
-            <input type="file">
-        </div>
+        
         <div class="form-group">
             <label for="">Referencia</label>
             <input name="referencia_producto" type="text" class="form-control">
@@ -50,7 +46,12 @@
             </select>
         </div>
         <div class="form-group">
-            <button type="submit" name="crear">Crear</button>
+
+            <label for="">Imagen de producto</label>
+            <input type="file">
+        </div>
+        <div class="form-group">
+            <button type="submit" value="crear" name="crear">Crear</button>
         </div>
 
     </form>

@@ -11,8 +11,10 @@ class usuario extends Controller
     public function visualizar()
     {
         $estructura=[
+            'id_usuario'=>'Id',
            'usuario' => 'Nombre usuario',
-            'correo' => 'Correo'
+           'correo'=>'Correo'
+            
 
         ];
         $filtros = "";
@@ -30,24 +32,27 @@ class usuario extends Controller
     public function signUp()
     {
         $filtros = "";
-        if (isset($_POST['signUp'])) {
-            unset($_POST['signUp']);
+        if (isset($_POST['crear'])) {
+            unset($_POST['crear']);
+            
             
             $filtros = $_POST;
+            unset($filtros['password']);
+            unset($filtros['usuario']);
         }
-        $this->model->select_($filtros);
+        $this->model->select_("",$filtros);
         if (isset($this->model->buffer)) {
             $buffer = $this->model->buffer;
         } else {
             if (!$this->model->data) {
-                $this->model->insert_($filtros);
+                $this->model->insert_($_POST);
 
                 session_start();
                 $_SESSION['serverResponse'] = "Registro Exitoso, Ahora puede entrar al sistema";
             } else {
                 $_SESSION['serverResponse'] = "No se registro correctamente, vuelva a intentarlo";
             }
-            header("Location: index.php");
+            header("Location:index.php?cl=rutas&me=administracion");
 
         }
     }

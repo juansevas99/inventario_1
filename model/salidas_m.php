@@ -22,7 +22,9 @@ class salidas_m extends model {
 
         }
         public function insert_($data){
+            $query="INSERT INTO salidas (referencia_salidas,cantidad_salidas,id_tipo_salida,id_orden_compra) values ( ";
             
+            $this->insert($query,$data);  
         }
         public function index_($filtros){
             $query="SELECT * from salidas";

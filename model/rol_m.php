@@ -22,14 +22,14 @@
             
         }
         public function insert_($filtros){
-            $query="INSERT INTO rol (rol_id, rol_nombre) values ( ";
+            $query="INSERT INTO rol (rol) values ( ";
             
             $this->insert($query,$filtros);         
     }
-    public function index_($filtros){
-        $query="SELECT * FROM rol";
-    $this->select($query,$filtros);
-    } 
+    // public function index_($filtros){
+    //     $query="SELECT * FROM rol";
+    // $this->select($query,$filtros);
+    // } 
     }
     
 ?>

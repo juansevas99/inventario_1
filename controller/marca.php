@@ -115,13 +115,9 @@ class marca extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=marca&me=visualizarMarca");
-        }
-        else{
-            $this->view="insertarMarca";
-            include 'lib/templates.php';
-            
-        }
+            header("Location:index.php?cl=rutas&me=administracion"); 
+                }
+       
     }
 }
 

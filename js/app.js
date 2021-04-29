@@ -18,7 +18,7 @@ function display(response){
             $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
         }
         
-        $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#actualizar'>Actualizar</button></td><td><button class='btn btn-danger'>Borrar</button></td></tr>";
+        $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><button type='button' class='btn btn-primary' data-pop='' data-id='"+response[j][Object.keys(response[0])[0]]+"' data-bs-toggle='modal' data-bs-target='#actualizar'>Actualizar</button></td><td><button class='btn btn-danger'>Borrar</button></td></tr>";
 
         
     }
@@ -29,7 +29,7 @@ function administracion(element){
     
     
             
-            
+            // document.getElementById('crearRegistro')
             
             fetch('index.php?cl='+element+'&me=visualizar',{
                 method:"POST"
@@ -349,7 +349,7 @@ function gestionInventario(){
                     $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
                 }
                 
-                $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='index.php?cl=entradas&me=crear' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='index.php?cl=salidas&me=crear' class='btn btn-warning'>Gestionar Salidas</a></td></tr>";
+                $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='index.php?cl=entradas&me=crear&id="+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='index.php?cl=salidas&me=crear&id="+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning'>Gestionar Salidas</a></td></tr>";
 
                 
             }
@@ -471,28 +471,65 @@ function reportes(element){
     )
 }
 d.addEventListener('DOMContentLoaded',()=>{
-   
+    
+
+
+
 
     if (document.getElementById('administracion')){
+        $pop=document.getElementById('popup')
+
+        
+
+
+        
+
+        
         document.querySelector('#tabla-admin > .cabecera').innerHTML="Extrayendo Datos del servidor ..."; 
         document.querySelectorAll('[data-ruta]').forEach(e=>{
             e.addEventListener('click',(element)=>{
-                // document.querySelector('#tabla-admin > .cabecera').innerHTML="Extrayendo Datos del servidor ..."; 
-
-                // setTimeout(()=>{
+                    $pop.setAttribute('data-pop',element.currentTarget.getAttribute('data-ruta'))
                     administracion(element.currentTarget.getAttribute('data-ruta'));
 
-                // }
-                //     ,2000
-                // )
+
             })
     })
     setTimeout(()=>{
         administracion(document.querySelector('[data-ruta]').getAttribute('data-ruta'))
+        $pop.setAttribute('data-pop','usuario')
 
     }
         ,2000
     )
+    document.querySelectorAll('.pop').forEach(e=>{
+        e.addEventListener('click',el=>{
+            $showed=document.querySelector('#popover').classList.toggle('d-none')
+            if (!$showed){
+            fetch('templates/crear'+document.getElementById('popup').getAttribute('data-pop')+'.php')
+            .then(
+                response=>{
+                    if (response.ok==false || response.status>299){
+                        return Promise.reject({err:"Error, no se encontro el archivo"})   
+                    response[0]}
+                    return response.text()
+                }
+                
+            )
+            .then(
+                response=>{
+                
+
+                    document.querySelector('#popover> div > div').innerHTML=response
+                }
+            )
+            .catch(
+                err=>{
+                    console.error(err.err)
+                }
+            )
+            }
+        });
+    })
 }
     else if (document.getElementById('productos')){
         document.querySelector('#tabla-admin > .cabecera').innerHTML="Extrayendo Datos del servidor ..."; 
@@ -531,7 +568,12 @@ d.addEventListener('DOMContentLoaded',()=>{
     })
         
     }
+
+    
 })
+
+
+
 
 
 // --------------------------------------------------------------------------------------------------------------

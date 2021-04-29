@@ -4,7 +4,7 @@
     <h1>
 
         <?php
-        echo $titulo //Verificar si esto debe ser una desicion de Front o  de back
+        echo $titulo["titulo"] //Verificar si esto debe ser una desicion de Front o  de back
         ?>
     </h1>
 
@@ -13,10 +13,7 @@
         <br>
         <br>
         
-        <div class="form-group">
-            <label for="">Referencia Orden de compra</label>
-            <input name="id_orden_compra" type="text" class="form-control">
-        </div>
+        
         <div class="form-group">
             <label for="">Cantidad</label>
             <input name="cantidad" type="text" class="form-control">
@@ -25,6 +22,12 @@
             <label for="">Observaciones</label>
             <input class="form-control" name="observaciones" type="text">
         </div>
+        <div class="form-group">
+            <label for="">Referencia Orden de compra</label>
+            <input  type="text" class="form-control" value="<?php echo $titulo["referencia"]?>" disabled>
+        </div>
+        
+        <input name="id_orden_compra" type="hidden" value="<?php echo $titulo["referencia"]?>" >
         
         <div class="form-group">
             <label for="">Tipo de entrada</label>
@@ -33,9 +36,8 @@
             </select>
         </div>
         <div class="form-group">
-            <button type="submit" name="crear">Crear</button>
-        </div>
-
+            <button class="btn btn-primary " type="submit" value="crear" name="crear">Crear</button>
+        </div>  
     </form>
 </main>
 </div>

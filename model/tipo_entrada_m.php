@@ -21,11 +21,11 @@ class tipo_entrada_m extends model{
         }
  
     public function insert_($filtros){
-        $query="INSERT INTO tipos_entrada (tipos_entrada, tipos_entrada) values ( ";
+        $query="INSERT INTO tipos_entrada (nomnre_tipos_entrada) values ( ";
         $this->insert($query,$filtros);         
     }
-    public function index_($filtros){
-            $query="SELECT * FROM tipos_entrada";
-        $this->select($query,$filtros);
-        } 
+    // public function index_($filtros){
+    //         $query="SELECT * FROM tipos_entrada";
+    //     $this->select($query,$filtros);
+    //     } 
 }

@@ -23,21 +23,15 @@ class usuario_m extends model{
         
     }
     
-    public function insert_($data){
+    public function insert_($filtros){
+        $query="INSERT INTO usuario (usuario, correo, password) values ( ";
+        $this->insert($query,$filtros);
         
-        $stmt=$this->dbo->prepare("INSERT INTO usuario (id_usuario,usuario,correo,password) VALUES (:id_usuario,:usuario,:correo,:password)");
-        $stmt->bindParam(":id_usuario",1,PDO::PARAM_STR);
-        $stmt->bindParam(":usuario",$data['email_user'],PDO::PARAM_STR);
-        $stmt->bindParam(":correo",$data['psw_user'],PDO::PARAM_STR);
-        $stmt->bindParam(":password",$data['name_user'],PDO::PARAM_STR);
-        $stmt->execute();
-
-        
-    }
-    public function index_($filtros){
-        $query="SELECT * FROM usuario a";
-    $this->select($query,$filtros);
-    }
+        }
+    // public function index_($filtros){
+    //     $query="SELECT * FROM usuario a";
+    // $this->select($query,$filtros);
+    // }
   
 
 

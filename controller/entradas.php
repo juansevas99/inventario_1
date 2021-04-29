@@ -35,11 +35,12 @@ class entradas extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: ?cl=ordez&me=visualizarDepartamento");
+            header("Location: index.php?cl=rutas&me=ordenCompra");
         }
         else{
-            $title="Creacion de entradas";
-            $this->view->render("crearEntrada",$title);
+            
+            $variables=["titulo"=>"Creacion de entradas","referencia"=>$_GET["id"]];
+            $this->view->render("crearEntrada",$variables);
             
         }
     }

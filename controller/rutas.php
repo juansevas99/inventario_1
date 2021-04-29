@@ -24,6 +24,10 @@ class rutas extends Controller{
         $variable="Gestion de inventario";
         $this->view->render("gestionInventario",$variable);
     }
+    public function test_1(){
+        $variable="Test";
+        $this->view->render("test_1",$variable);
+    }
 
 
 

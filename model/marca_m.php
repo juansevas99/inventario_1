@@ -22,14 +22,14 @@
             $this->delete($query,$filtros);
         }
         public function insert_($filtros){
-            $query="INSERT INTO marca (codigo_marca, nombre_marca) values ( ";
+            $query="INSERT INTO marca (nombre) values ( ";
             $this->insert($query,$filtros);
             
     }
-    public function index_($filtros){
-        $query="SELECT * FROM marca";
-    $this->select($query,$filtros);
-    } 
+    // public function index_($filtros){
+    //     $query="SELECT * FROM marca";
+    // $this->select($query,$filtros);
+    // } 
     }
     
 ?>

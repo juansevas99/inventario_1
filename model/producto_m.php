@@ -26,10 +26,10 @@ class producto_m extends model{
         $this->insert($query,$filtros);
         
 }
-public function index_($filtros){
-    $query="SELECT * FROM producto";
-$this->select($query,$filtros);
-} 
+// public function index_($filtros){
+//     $query="SELECT * FROM producto";
+// $this->select($query,$filtros);
+// } 
 }
 
 ?>
