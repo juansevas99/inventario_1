@@ -23,38 +23,21 @@ class categoria extends Controller{
         
     }
 
-    function actualizarDepartamento(){
-        $this->title="Actualizar Departamento";
-        if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_departamento'=>$_GET['Id']];
-            $this->model->index_($filtros);
+    function actualizar(){
 
-            $activo=$this->model->data;
-            $this->model->select_($filtros);
-            $activo_select=$this->model->data;
-            
-            //Se buscan los indices en las tabls relacionadas usando model->index
-            // $estado=$this->factoryModel->validateModel("estado");
-            // $estado->select_("");
+        $estructura=[
+            'id_categoria' => 'id_categoria',
+             'nombre_categoria' => 'nombre_categoria'
+        ];
+        $this->model->select_($estructura,['id_categoria'=>$_GET['id']]);
+        $data=$this->model->data;
 
-           
-            $datos=array(
-                'datos'=>$activo,
-                'datos_select'=>$activo_select
-            );
-        //    echo "<pre>";
-        //     var_dump($datos);
-        //     echo "</pre>";
-        //     exit();
-        }
-        $this->view="actualizarDepartamento";
-        include 'lib/templates.php';
-        
+        include 'templates/actualizarCategoria.php';
+
     }
-    function confirmarActualizacion(){
-        if(isset($_POST['ActualizarDepartamento'])){ 
+    function confirmarActualizar(){
+
             
-            unset($_POST['ActualizarDepartamento']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -69,27 +52,10 @@ class categoria extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-            // echo "<pre>";
-            // var_dump($valores,$filtros);
-            // echo "</pre>";
-            // exit();
-       
+            // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        }
-        if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
-            // var_dump($this->buffer);
-            // exit();       
-        }
-        else{
-            $this->respuesta=$this->model->response;
-            // var_dump($this->respuesta);
-            // exit();
-        }
-        
-    
-        header("Location: ?cl=departamento&me=visualizarDepartamento");
+        header("Location: index.php?cl=rutas&me=administracion");
 
 
         
@@ -97,22 +63,9 @@ class categoria extends Controller{
 
     }
 
-    function borrar(){
-        $filtros=[];
-        if(isset($_GET['Id'])){
-            $filtros['id_departamento']=$_GET['Id'];
-        }
-       
-        $this->model->delete_($filtros);
-        if (isset($this->model->buffer)){
-            $this->buffer.=$this->model->buffer;
-            
-        }
-        else{
-            $this->response=$this->model->response;
-            
-        }
-        header("Location: ?cl=departamento&me=visualizarDepartamento");
+    function delete(){
+        $this->model->delete_(['id_categoria'=>$_GET['id']]);
+        $this->visualizar();
     }
     function insertar(){
         

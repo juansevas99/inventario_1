@@ -4,6 +4,10 @@ class Controller {
     protected $model;
     public function __construct($model)
 
+    // llama al modelo asociado con el controlador
+    // inicializa una vista
+    // 
+
     {
         $modelRuta="model/".$model.".php";
         if (file_exists($modelRuta)){

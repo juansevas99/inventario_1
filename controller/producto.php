@@ -15,7 +15,7 @@
         'fecha_creacion'=>'Fecha de creacion',
         'estado_id_estado'=>'Estado',
         'categoria_id_categoria'=>'Categoria',
-        'categoria_id_categoria'=>'Stock de producto',
+        'stock_producto'=>'Stock de producto',
         'proveedor_id_proveedor'=>'Proveedor',
         'marca_id_marca'=>'Marca'
         ];

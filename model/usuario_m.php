@@ -19,8 +19,10 @@ class usuario_m extends model{
         $query="UPDATE usuario SET ";
         $this->update($query,$valores,$filtros);
     }
-    public function delete_($data){
-        
+    public function delete_($filtros){
+        $query="delete from ".$this->table;
+        $this->delete($query,$filtros);
+
     }
     
     public function insert_($filtros){

@@ -94,7 +94,54 @@ class usuario extends Controller
     }
 
 
+    function actualizar(){
+        $filtros=$_GET['id'];
+        $estructura=[
+            'id_usuario'=>'id_usuario',
+            'usuario' => 'usuario',
+             'correo' => 'correo',
+ 
+         ];
+         
+        
+        $this->model->select_($estructura,["id_usuario"=>$filtros]);
+        $data=$this->model->data;
+        include 'templates/actualizarUsuario.php';
 
+    }
+    public function confirmarActualizar(){
+        $filtros=$_POST;
+   
+        
+        unset($_POST['ActualizarProveedor']);
+            $filtros=[];
+            $valores=[];
+            foreach ($_POST as $key => $value) {
+
+
+                if (strstr($key,"_set")){
+                    $antes=strpos($key,"_set");
+                    $key=substr($key,0,$antes);
+                    $valores[$key]=$value;
+                }
+                else if (strstr($key,"_where")){
+                    $antes=strpos($key,"_where");
+                    $key=substr($key,0,$antes);
+                    $filtros[$key]=$value;
+                }
+            }
+
+
+            $this->model->update_($valores,$filtros);
+            header("Location: index.php?cl=rutas&me=administracion");
+        
+
+    }
+
+    function delete(){
+        $this->model->delete_(['id_usuario'=>$_GET['id']]);
+        $this->visualizar();
+    }
 
     public function cerrarSesion()
     {

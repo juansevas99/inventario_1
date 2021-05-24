@@ -20,37 +20,24 @@ class tipo_entrada extends Controller{
 
         echo json_encode($this->model->data);
     }
-    function actualizarTipo_activo(){
-        $this->title="Actualizar Tipo de activo";
-        if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_tipo_activo'=>$_GET['Id']];
-            $this->model->index_($filtros);
-            $activo=$this->model->data;
-            $this->model->select_($filtros);
-            $activo_select=$this->model->data;
-            
-            //Se buscan los indices en las tabls relacionadas usando model->index
-            // $estado=$this->factoryModel->validateModel("estado");
-            // $estado->select_("");
+    
+    function actualizar(){
 
-           
-            $datos=array(
-                'datos'=>$activo,
-                'datos_select'=>$activo_select
-            );
-        //    echo "<pre>";
-        //     var_dump($datos);
-        //     echo "</pre>";
-        //     exit();
-        }
-        $this->view="actualizarTipo_activo";
-        include 'lib/templates.php';
-        
+        $estructura=[
+            'id_tipos_entrada'=>'id_tipos_entrada',
+             'nomnre_tipos_entrada' => 'nomnre_tipos_entrada'
+    
+            ];
+
+        $this->model->select_($estructura,['id_tipos_entrada'=>$_GET['id']]);
+        $data=$this->model->data;
+
+        include 'templates/actualizarTipoEntrada.php';
+
     }
-    function confirmarActualizacion(){
-        if(isset($_POST['ActualizarTipo_activo'])){ 
+    function confirmarActualizar(){
+
             
-            unset($_POST['ActualizarTipo_activo']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -65,33 +52,17 @@ class tipo_entrada extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-            // echo "<pre>";
-            // var_dump($valores,$filtros);
-            // echo "</pre>";
-            // exit();
-       
+            // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        }
-        if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
-            // var_dump($this->buffer);
-            // exit();       
-        }
-        else{
-            $this->respuesta=$this->model->response;
-            // var_dump($this->respuesta);
-            // exit();
-        }
-        
-    
-        header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
+        header("Location: index.php?cl=rutas&me=administracion");
 
 
         
         
 
     }
+
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
@@ -103,23 +74,12 @@ class tipo_entrada extends Controller{
                 }
        
     }
-    function borrar(){
-        $filtros=[];
-        if(isset($_GET['Id'])){
-            $filtros['id_tipo_activo']=$_GET['Id'];
-        }
-       
-        $this->model->delete_($filtros);
-        if (isset($this->model->buffer)){
-            $this->buffer.=$this->model->buffer;
-            
-        }
-        else{
-            $this->response=$this->model->response;
-            
-        }
-        header("Location: ?cl=tipo_activo&me=visualizartipo_activo");
+    
+    function delete(){
+        $this->model->delete_(['id_tipos_entrada'=>$_GET['id']]);
+        $this->visualizar();
     }
+
 
 
     

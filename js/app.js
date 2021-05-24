@@ -18,7 +18,7 @@ function display(response){
             $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
         }
         
-        $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><button type='button' class='btn btn-primary' data-pop='' data-id='"+response[j][Object.keys(response[0])[0]]+"' data-bs-toggle='modal' data-bs-target='#actualizar'>Actualizar</button></td><td><button class='btn btn-danger'>Borrar</button></td></tr>";
+        $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><button type='button' class='btn btn-primary popUpdate' onclick='updateAdmin(this)' data-id='"+response[j][Object.keys(response[0])[0]]+"' >Actualizar</button></td><td><button class='btn btn-danger' onclick=deleteAdmin(this) data-id="+response[j][Object.keys(response[0])[0]]+">Borrar</button></td></tr>";
 
         
     }
@@ -470,6 +470,64 @@ function reportes(element){
         }
     )
 }
+
+function updateAdmin(a){
+        $showed=document.querySelector('#popoverUpdate').classList.toggle('d-none')
+            if (!$showed){
+
+            fetch('index.php?cl='+document.getElementById('popup').getAttribute('data-pop')+'&me=actualizar&id='+a.dataset.id)
+            .then(
+                response=>{
+                    if (response.ok==false || response.status>299){
+                        return Promise.reject("Error, no se encontro el archivo")   }
+                    return response.text()
+                }
+                
+            )
+            .then(
+                response=>{
+                    // console.log(response);
+                    document.querySelector('#popoverUpdate> div > div').innerHTML=response
+
+
+                }
+            )
+            
+            .catch(
+                err=>{
+                    console.error(err)
+                }
+            )
+            }
+
+}
+function deleteAdmin(a){
+    id=a.dataset.id;
+
+    fetch('index.php?cl='+document.getElementById('popup').getAttribute('data-pop')+'&me=delete&id='+id)
+    .then(
+        response=>{
+            if (response.ok==false || response.status>299){
+                return Promise.reject({err:"Error, no se encontro el archivo"})   
+            response[0]}
+            return response.json()
+        }
+        
+    )
+    .then(
+        response=>{
+            // console.log(response)
+            display(response);
+            
+        }
+    )
+    .catch(
+        err=>{
+            console.error(err.err)
+        }
+    )
+
+}
 d.addEventListener('DOMContentLoaded',()=>{
     
 
@@ -530,6 +588,12 @@ d.addEventListener('DOMContentLoaded',()=>{
             }
         });
     })
+   
+
+    
+
+
+
 }
     else if (document.getElementById('productos')){
         document.querySelector('#tabla-admin > .cabecera').innerHTML="Extrayendo Datos del servidor ..."; 

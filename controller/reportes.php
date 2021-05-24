@@ -21,6 +21,7 @@ class reportes extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_('kardex',$filtros);
+        
         echo json_encode($this->model->data);  
     }
 

@@ -1,16 +1,18 @@
 <?php
+// Es el encagado de formatear la consulta
+// Da respuesta de lo que salio en la base de datos
 class model extends conn implements iadministracion{
     public $data=[];
 
-    function update($query,$valores,$filtros){
-        $formatear=new formatearConsulta();
-        $query.=$formatear->update($valores,$filtros);
-       
+function update($query,$valores,$filtros){
+    $formatear=new formatearConsulta();
+    $query.=$formatear->update($valores,$filtros);
     
-      $this->prepararSentencia_update($query,$valores,$filtros);
-        if($this->stmt){
-            $this->response=$this->stmt;
-        }
+
+    $this->prepararSentencia_update($query,$valores,$filtros);
+    if($this->stmt){
+        $this->response=$this->stmt;
+    }
     }
 
 public function delete($query,$filtros){
@@ -49,7 +51,7 @@ public function select($table,$estructura,$filtros){
          if($this->stmt){
             $this->data=$this->stmt->fetchAll();
             
-            // var_dump($this->data);
+            
             // exit();
             
         }

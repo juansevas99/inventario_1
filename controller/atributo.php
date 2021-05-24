@@ -98,22 +98,9 @@ class atributo extends Controller{
         
 
     }
-    function borrar(){
-        $filtros=[];
-        if(isset($_GET['Id'])){
-            $filtros['id_atributos']=$_GET['Id'];
-        }
-       
-        $this->model->delete_($filtros);
-        if (isset($this->model->buffer)){
-            $this->buffer.=$this->model->buffer;
-            
-        }
-        else{
-            $this->response=$this->model->response;
-            
-        }
-        header("Location: ?cl=atributo&me=visualizarAtributos");
+    function delete(){
+        $this->model->delete_(['id_categoria'=>$_GET['id']]);
+        $this->visualizar();
     }
 
 

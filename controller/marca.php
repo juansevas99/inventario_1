@@ -21,36 +21,20 @@ class marca extends Controller{
         
      
     }
-    function actualizarMarca(){
-        $this->title="Actualizar Marca";
-        if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_marca'=>$_GET['Id']];
-            $this->model->index_($filtros);
+    function actualizar(){
+      
+        $estructura=[
+            'id_marca'=> 'id_marca',
+            'nombre' => 'nombre'
+        ];
 
-            $activo=$this->model->data;
-            $this->model->select_($filtros);
-            $activo_select=$this->model->data;
-
-           
-            $datos=array(
-                'datos'=>$activo,
-                'datos_select'=>$activo_select,
-
-            );
-  
-        }
-        // echo "<pre>";
-        // var_dump($datos);
-        // echo "</pre>";
-        // exit();
-        $this->view="actualizarMarca";
-        include 'lib/templates.php';
+        $this->model->select_($estructura,['id_marca'=>$_GET['id']]);
+        $data=$this->model->data;
+        include 'templates/actualizarmarca.php';
         
     }
-    function confirmarActualizacion(){
-        if(isset($_POST['ActualizarMarca'])){ 
+    function confirmarActualizar(){
             
-            unset($_POST['ActualizarMarca']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -65,48 +49,24 @@ class marca extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-            // var_dump($valores,$filtros);
             // exit();
-       
+    //    
         $this->model->update_($valores,$filtros);
+        // 
 
-        }
-        if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
-            // var_dump($this->buffer);
-            // exit();       
-        }
-        else{
-            $this->respuesta=$this->model->response;
-            // var_dump($this->respuesta);
-            // exit();
-        }
+      
         
     
-        header("Location: ?cl=marca&me=visualizarMarca");
+        header("Location: ?cl=rutas&me=administracion");
 
 
         
         
 
     }
-    function borrar(){
-        $filtros=[];
-        if(isset($_GET['Id'])){
-            $filtros['id_marca']=$_GET['Id'];
-        }
-       
-        $this->model->delete_($filtros);
-        if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
-            
-        }
-        else{
-            $this->response=$this->model->response;
-            // echo $this->response;
-            // exit();
-        }
-        header("Location: ?cl=marca&me=visualizarMarca");
+    function delete(){
+        $this->model->delete_(['id_marca'=>$_GET['id']]);
+        $this->visualizar();
     }
     function insertar(){
         

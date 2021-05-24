@@ -7,6 +7,30 @@ include_once 'lib/model.php';
 include_once 'lib/factoryModel.php';
 include_once 'lib/view.php';
 
+
+
+
+
+
+// llama a todas los archivos que necesitara mas adelante
+
+// incluira cada archivo de la clase que se instancie
+
+// verificar si un request tiene es un POST o GET
+
+// autenticacion d¡y login de usuarios
+
+//Gestion de rutas
+
+
+// Validate routes
+
+// Asignacion de ruta a una clase y un metodo
+// ASignacion de un nombre de pila a esa ruta   
+
+
+
+
 spl_autoload_register(function ($class_name){
     $file_controller='controller/'.$class_name.'.php';// Relacion  de controlador y modelo uno a uno
     // $file_model='model/'.$class_name.'.php';

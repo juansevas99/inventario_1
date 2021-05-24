@@ -1,4 +1,6 @@
 <?php
+// por  cada que se llame generara una estrucura preestablecida 
+
 class view{
  public function __construct(){
     $this->header="templates/header.php";

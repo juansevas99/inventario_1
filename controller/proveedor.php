@@ -28,40 +28,24 @@ class proveedor extends Controller{
     }
     
     
-    function actualizarProveedor(){
-        $this->title="Actualizar Proveedor";
-        if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_proveedor'=>$_GET['Id']];
-            $this->model->index_($filtros);
+    function actualizar(){
 
-            $activo=$this->model->data;
-            $this->model->select_($filtros);
-            $activo_select=$this->model->data;
-           
+        $estructura=[
+            'id_proveedor' => 'id_proveedor',
+        	'nombre_proveedor' => 'nombre_proveedor',
+            'correo'  => 'correo',
+            'documento'  => 'documento',
+            'telefono' => 'telefono'];
 
-            
-            
+        $this->model->select_($estructura,['id_proveedor'=>$_GET['id']]);
+        $data=$this->model->data;
 
-            
-            //Se genera el array
-       
-            $datos=array(
-                'datos'=>$activo,
-                'datos_select'=>$activo_select
-            );
-        //    echo "<pre>";
-        //     var_dump($datos);
-        //     echo "</pre>";
-        //     exit();
-        }
-        $this->view="actualizarProveedor";
-        include 'lib/templates.php';
-        
+        include 'templates/actualizarproveedor.php';
+
     }
-    function confirmarActualizacion(){
-        if(isset($_POST['ActualizarProveedor'])){ 
+    function confirmarActualizar(){
+
             
-            unset($_POST['ActualizarProveedor']);
             $filtros=[];
             $valores=[];
             foreach ($_POST as $key => $value) {
@@ -76,23 +60,10 @@ class proveedor extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-       
+            // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        }
-        if (isset($this->model->buffer)){
-            $this->buffer=$this->model->buffer;
-            // var_dump($this->buffer);
-            // exit();       
-        }
-        else{
-            $this->respuesta=$this->model->response;
-            // var_dump($this->respuesta);
-            // exit();
-        }
-        
-    
-        $this->visualizar();
+        header("Location: index.php?cl=rutas&me=administracion");
 
 
         
@@ -100,22 +71,9 @@ class proveedor extends Controller{
 
     }
 
-    function borrar(){
-        $filtros=[];
-        if(isset($_GET['Id'])){
-            $filtros['id_proveedor']=$_GET['Id'];
-        }
-       
-        $this->model->delete_($filtros);
-        if (isset($this->model->buffer)){
-            $this->buffer.=$this->model->buffer;
-            
-        }
-        else{
-            $this->response=$this->model->response;
-            
-        }
-        header("Location: ?cl=proveedor&me=visualizarProveedor");
+    function delete(){
+        $this->model->delete_(['id_proveedor'=>$_GET['id']]);
+        $this->visualizar();
     }
     function insertar(){
         

@@ -5,7 +5,8 @@ class conn extends constantes{
     private $dsn;
     protected $dbo;
     protected $stmt;
-
+    // conecta a la Base de datos
+    // gestiona los errores de la base de datos
 
     function __construct()
     {
