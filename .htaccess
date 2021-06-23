@@ -3,7 +3,7 @@ RewriteEngine on
 
 
 
-RewriteBase /project_1/
+#RewriteBase /project_1/
 
 
 

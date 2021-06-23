@@ -24,7 +24,7 @@
             </button>
             <div class="m-1">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <a class="navbar-toggler-icon" href="user/close"><img src="http://localhost/project_1/assets/media/off.png" width="90%" alt=""></a>
+                <a class="navbar-toggler-icon" href="http://localhost/project_1/user/close"><img src="http://localhost/project_1/assets/media/off.png" width="90%" alt=""></a>
             </button>
             </div>
             
