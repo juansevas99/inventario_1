@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="logreg-forms">
-        <form action="./?cl=usuario&me=login" method="POST" class="form-signin">
+        <form action="./user/login" method="POST" class="form-signin">
             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
             <div class="social-login">
                 <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>

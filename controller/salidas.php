@@ -7,6 +7,10 @@ class salidas extends Controller{
 
 
     }
+    
+    public function prepararCreacion(){
+        include "templates/crearSalida.php";
+    }
     // public function visualizar(){
     //     $estructura=[
     //     'id_oden_compra' => 'Id',

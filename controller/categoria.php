@@ -23,6 +23,10 @@ class categoria extends Controller{
         
     }
 
+    public function prepararCreacion(){
+        include "templates/crearcategoria.php";
+    }
+
     function actualizar(){
 
         $estructura=[
@@ -55,7 +59,7 @@ class categoria extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: index.php?cl=rutas&me=administracion");
+        header("Location: http://localhost/project_1/routes/admin");
 
 
         

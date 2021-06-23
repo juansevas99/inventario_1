@@ -8,7 +8,7 @@
         ?>
     </h1>
 
-    <form action="index.php?cl=salidas&me=crear" method="POST">
+    <form action="http://localhost/project_1/output/create" method="POST">
 
         <br>
         <br>

@@ -28,6 +28,10 @@ class rutas extends Controller{
         $variable="Test";
         $this->view->render("test_1",$variable);
     }
+    public function error(){
+        $titulo="ERROR 404";
+        include "templates/error/404.php";
+    }
 
 
 

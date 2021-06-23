@@ -33,6 +33,10 @@ class marca extends Controller{
         include 'templates/actualizarmarca.php';
         
     }
+
+    public function prepararCreacion(){
+        include "templates/crearmarca.php";
+    }
     function confirmarActualizar(){
             
             $filtros=[];
@@ -75,7 +79,7 @@ class marca extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
                 }
        
     }

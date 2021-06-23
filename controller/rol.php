@@ -8,6 +8,9 @@ class rol extends Controller{
     }
 
 
+    public function prepararCreacion(){
+        include "templates/crearrol.php";
+    }
     function visualizar(){
         $estructura=[
             'id_rol'=>'id_rol',
@@ -76,7 +79,7 @@ class rol extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
                 }
        
     }

@@ -7,7 +7,7 @@
         ?>
     </h1>
 
-    <form action="index.php?cl=producto&me=insertar" method="POST">
+    <form action="http://localhost/project_1/product/create" method="POST">
 
         <br>
         <br>

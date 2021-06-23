@@ -6,6 +6,8 @@ include_once 'lib/formatearConsulta.php';
 include_once 'lib/model.php';
 include_once 'lib/factoryModel.php';
 include_once 'lib/view.php';
+include_once 'web/web.php';
+include_once 'web/iniciarRutas.php';
 
 
 
@@ -31,22 +33,22 @@ include_once 'lib/view.php';
 
 
 
-spl_autoload_register(function ($class_name){
-    $file_controller='controller/'.$class_name.'.php';// Relacion  de controlador y modelo uno a uno
-    // $file_model='model/'.$class_name.'.php';
+// spl_autoload_register(function ($class_name){
+//     $file_controller='controller/'.$class_name.'.php';// Relacion  de controlador y modelo uno a uno
+//     // $file_model='model/'.$class_name.'.php';
   
-    if (file_exists($file_controller)){
-        include_once $file_controller;
+//     if (file_exists($file_controller)){
+//         include_once $file_controller;
         
         
         
-    }
-    else{
+//     }
+//     else{
         
-        include_once 'templates/error.php';
-        exit();
-    }
-});
+//         include_once 'templates/error.php';
+//         exit();
+//     }
+// });
 
 // Things we are more likely to receive from anywhere
 /*
@@ -64,23 +66,27 @@ spl_autoload_register(function ($class_name){
         Validacion en cada request
         Validacion al iniciar session y cerrar session
     */ 
-if (isset($_GET)){
-    $class=isset($_GET['cl']) && !empty($_GET['cl'])?$_GET['cl']:null;
-    $method=isset($_GET['me']) && !empty($_GET['me'])?$_GET['me']:null;
+// if (isset($_GET)){
+//     $class=isset($_GET['cl']) && !empty($_GET['cl'])?$_GET['cl']:null;
+//     $method=isset($_GET['me']) && !empty($_GET['me'])?$_GET['me']:null;
 
-}
-else if (isset($_POST)){
-    $class=isset($_POST['cl']) && !empty($_POST['cl'])?$_POST['cl']:null;
-    $method=isset($_POST['me']) && !empty($_POST['me'])?$_POST['me']:null;
+// }
+// else if (isset($_POST)){
+//     $class=isset($_POST['cl']) && !empty($_POST['cl'])?$_POST['cl']:null;
+//     $method=isset($_POST['me']) && !empty($_POST['me'])?$_POST['me']:null;
 
-}
+// }
 session_start();
 
-    if (!isset($_SESSION['logged'])){
+
+if (web::ValidarRutas($ruta)){
+    // se validan las clases y metodos
+    if (!isset($_SESSION['logged']) && $ruta!="rutas/error"){
        
         if (isset($_POST['login']) || isset($_POST['signUp']) ){
-            
-            ValidateClasss($class,$method);
+            //  echo $ruta;
+            //  exit();
+            web::validarArchivos($ruta);
         }
         else{
         
@@ -89,33 +95,17 @@ session_start();
         }
 
     }
-    else if(isset($_SESSION['logged']) && $_SESSION['logged']=="logged" )  {
-
-        ValidateClasss($class,$method);
-    }
-
-
-     
- function ValidateClasss ($class, $method)
-{
-    if ($class){
-        $class_instance= new $class;
-        if ($method)
-        {
-            
-            $class_instance->{$method}();
-            
-
-        }
-        
-    }  
-    else{
-        
-        ValidateClasss("rutas","productos");
-
-            
+    else if((isset($_SESSION['logged']) && $_SESSION['logged']=="logged" ) || $ruta="rutas/error" )  {
+       
+        web::validarArchivos($ruta);
     }
 }
+else{
+    
+    header("Location: rutas/error");
 
-// Hola
+}
+
+     
+
 ?>

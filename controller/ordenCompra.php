@@ -7,6 +7,10 @@ class ordenCompra extends Controller{
 
 
     }
+    
+    public function prepararCreacion(){
+        include "templates/error/404.php";
+    }
     public function visualizar(){
         $estructura=[
         'id_oden_compra' => 'Id',
@@ -37,7 +41,7 @@ class ordenCompra extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
             }
        
     }

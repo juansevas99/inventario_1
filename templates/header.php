@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>An amazing Page</title>
     <script src=></script>
-    <script src="./js/app.js"></script>
+    <script src="http://localhost/project_1/assets/js/app.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
@@ -20,11 +20,11 @@
             <div class="navbar-brand"><span style="font-family: 'Zen Dots', cursive;">JS IM</span></div>
             <div class="nav">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
+                <span class="navbar-toggler-icon"><img src="http://localhost/project_1/assets/media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
             </button>
             <div class="m-1">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <a class="navbar-toggler-icon" href="index.php?cl=usuario&me=cerrarSesion"><img src="./media/off.png" width="90%" alt=""></a>
+                <a class="navbar-toggler-icon" href="user/close"><img src="http://localhost/project_1/assets/media/off.png" width="90%" alt=""></a>
             </button>
             </div>
             

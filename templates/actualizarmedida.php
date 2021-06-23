@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=medida&me=confirmarActualizar" method="POST">
+<form action="http://localhost/project_1/measure/confirmUpdate" method="POST">
 
 <input name="id_medida_where" type="hidden" class="form-control" value=<?php echo $data[0]['id_medida']?> ><div>
 

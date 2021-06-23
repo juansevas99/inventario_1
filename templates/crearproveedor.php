@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=proveedor&me=insertar" method="POST">
+<form action="http://localhost/project_1/supplier/create" method="POST">
 <div class="input-form">
 <label for="">Nombre del Proveedor</label>
 <input name="nombre_proveedor" type="text" class="form-control">

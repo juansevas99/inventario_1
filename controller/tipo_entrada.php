@@ -20,7 +20,9 @@ class tipo_entrada extends Controller{
 
         echo json_encode($this->model->data);
     }
-    
+    public function prepararCreacion(){
+        include "templates/creartipo_entrada.php";
+    }
     function actualizar(){
 
         $estructura=[
@@ -70,7 +72,7 @@ class tipo_entrada extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
                 }
        
     }

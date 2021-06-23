@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=tipo_salida&me=insertar" method="POST">
+<form action="http://localhost/project_1/type_outputs/create" method="POST">
 <div class="input-form">
 <label for="">Tipo de Salida</label>
 <input name="nombre_tipo_salida" type="text" class="form-control">

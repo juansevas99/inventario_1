@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=rol&me=confirmarActualizar" method="POST">
+<form action="http://localhost/project_1/rol/confirmUpdate" method="POST">
 
 <input name="id_rol_where" type="hidden" class="form-control" value=<?php echo $data[0]['id_rol']?> ><div>
 

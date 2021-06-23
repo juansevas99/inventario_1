@@ -5,16 +5,16 @@
                 <h4>Reportes</h4>
             </div>
             <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#Items" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
+                <span class="navbar-toggler-icon"><img src=".http://localhost/project_1/assets/media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
             </button>
 
             <div class="collapse navbar-collapse" id="Items">
                 <ul class="navbar-nav">
                     <a class="nav-link btn btn-light" data-reporte="kardex" href="#">Kardex</a>
-                    <a class="nav-link btn btn-light" data-reporte="ordenes" href="#">Ordenes de Compra</a>
-                    <a class="nav-link btn btn-light" data-reporte="masVendidos" href="#">Mas Vendidos</a>
-                    <a class="nav-link btn btn-light" data-reporte="entradas" href="#">Entradas</a>
-                    <a class="nav-link btn btn-light" data-reporte="salidas" href="#">Salidas</a>
+                    <a class="nav-link btn btn-light" data-reporte="purchaseOrders" href="#">Ordenes de Compra</a>
+                    <a class="nav-link btn btn-light" data-reporte="bestsellers" href="#">Mas Vendidos</a>
+                    <a class="nav-link btn btn-light" data-reporte="entries" href="#">Entradas</a>
+                    <a class="nav-link btn btn-light" data-reporte="outputs" href="#">Salidas</a>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=atributo&me=insertar" method="POST">
+<form action="http://localhost/project_1/feature/create" method="POST">
 <div class="input-form">
 <label for="">Nombre atributo</label>
 <input name="nombre_atributo" type="text" class="form-control">

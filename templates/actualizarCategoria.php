@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=categoria&me=confirmarActualizar" method="POST">
+<form action="http://localhost/project_1/category/confirmUpdate" method="POST">
 
 <input name="id_categoria_where" type="hidden" class="form-control" value=<?php echo $data[0]['id_categoria']?> ><div>
 

@@ -5,6 +5,10 @@ class proveedor extends Controller{
         parent::__construct("proveedor_m");
         
     }
+    
+    public function prepararCreacion(){
+        include "templates/crearproveedor.php";
+    }
     function visualizar(){
         $estructura=[
             'id_proveedor' => 'Id',
@@ -82,7 +86,7 @@ class proveedor extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
                 }
        
     }

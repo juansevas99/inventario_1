@@ -1,6 +1,6 @@
 
 
-<form action="index.php?cl=proveedor&me=confirmarActualizar" method="POST">
+<form action="http://localhost/project_1/supplier/confirmUpdate" method="POST">
 
 <input name="id_proveedor_where"  value="<?php echo $data[0]['id_proveedor']?>" type="hidden" class="form-control" ><div>
 

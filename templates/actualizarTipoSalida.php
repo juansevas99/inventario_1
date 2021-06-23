@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=tipo_salida&me=confirmarActualizar" method="POST">
+<form action="http://localhost/project_1/type_outputs/confirmUpdate" method="POST">
 
 <input name="id_tipo_salida_where" type="hidden" class="form-control" value=<?php echo $data[0]['id_tipo_salida']?> ><div>
 

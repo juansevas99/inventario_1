@@ -29,6 +29,9 @@ class entradas extends Controller{
 
     // }
 
+    public function prepararCreacion(){
+        include "templates/crearEntrada.php";
+    }
     public function crear(){
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
             unset($_POST['crear']);

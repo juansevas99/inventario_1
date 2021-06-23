@@ -22,14 +22,14 @@ class atributo extends Controller{
     }
 
     function actualizarAtributo(){
-        $this->title="Actualizar Activo";
-        if ($_GET['Id']){ //validar esta linea
-            $filtros=['id_atributos'=>$_GET['Id']];
-            $this->model->index_($filtros);
+        // $this->title="Actualizar Activo";
+        // if ($_GET['Id']){ //validar esta linea
+        //     $filtros=['id_atributos'=>$_GET['Id']];
+        //     $this->model->index_($filtros);
 
-            $activo=$this->model->data;
-            $this->model->select_($filtros);
-            $activo_select=$this->model->data;
+        //     $activo=$this->model->data;
+        //     $this->model->select_($filtros);
+        //     $activo_select=$this->model->data;
             
 
             
@@ -37,11 +37,11 @@ class atributo extends Controller{
             
            
            
-            $datos=array(
-                'datos'=>$activo,
-                'datos_select'=>$activo_select,
+            // $datos=array(
+            //     'datos'=>$activo,
+            //     'datos_select'=>$activo_select,
 
-            );
+            // );
         //    echo "<pre>";
         //     var_dump($datos);
         //     echo "</pre>";
@@ -50,9 +50,19 @@ class atributo extends Controller{
 
 
             
-        }
-        $this->view="actualizarAtributos";
-        include 'lib/templates.php';
+        // }
+        // $this->view="actualizarAtributos";
+        // include 'lib/templates.php';
+
+
+        $estructura=[
+            'id_marca'=> 'id_marca',
+            'nombre' => 'nombre'
+        ];
+
+        $this->model->select_($estructura,['id_marca'=>$_GET['id']]);
+        $data=$this->model->data;
+        include 'templates/actualizarmarca.php';
         
     }
     function confirmarActualizacion(){
@@ -111,9 +121,13 @@ class atributo extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion");       
+            header("Location: http://localhost/project_1/routes/admin");       
          }
         
+    }
+
+    public function prepararCreacion(){
+        include "templates/crearatributo.php";
     }
 }
 

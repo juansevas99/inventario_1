@@ -7,6 +7,11 @@ class medida extends Controller{
 
 
     }
+
+    
+    public function prepararCreacion(){
+        include "templates/crearmedida.php";
+    }
     public function visualizar(){
         $estructura=[
         'id_medida'=>'id_medida',
@@ -28,7 +33,7 @@ class medida extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location:index.php?cl=rutas&me=administracion"); 
+            header("Location: http://localhost/project_1/routes/admin"); 
                 }
        
     }

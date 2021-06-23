@@ -1,4 +1,4 @@
-<form action="index.php?cl=usuario&me=signUp" method="POST">
+<form action="http://localhost/project_1/user/signup" method="POST">
     <div class="input-form">
     <label for="">Nombre Usuario</label>
     <input name="usuario" type="text" class="form-control">

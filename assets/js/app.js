@@ -30,8 +30,8 @@ function administracion(element){
     
             
             // document.getElementById('crearRegistro')
-            
-            fetch('index.php?cl='+element+'&me=visualizar',{
+            console.log(element+'/list');
+            fetch("http://localhost/project_1/"+element+'/list',{
                 method:"POST"
             }).then(
 
@@ -223,7 +223,7 @@ function productos(){
             
                 
                 
-            fetch('index.php?cl=producto&me=visualizar',{
+            fetch('http://localhost/project_1/product/list',{
                 method:"GET"
             }).then(
 
@@ -431,7 +431,7 @@ function crearSalida(){
 }
 
 function reportes(element){
-    fetch('index.php?cl=reportes&me='+element,{
+    fetch('http://localhost/project_1/reports/'+element,{
         method:"POST"
     }).then(
 
@@ -442,7 +442,9 @@ function reportes(element){
             return response.json();
         }
     ).then(
+        
         response=>{
+            console.log(response);
                 $cabecera=document.querySelector('#tabla-admin > .cabecera')
                 $cadenaCabecera="";
                 for (let i = 0; i < Object.keys(response[0]).length; i++) {
@@ -475,7 +477,7 @@ function updateAdmin(a){
         $showed=document.querySelector('#popoverUpdate').classList.toggle('d-none')
             if (!$showed){
 
-            fetch('index.php?cl='+document.getElementById('popup').getAttribute('data-pop')+'&me=actualizar&id='+a.dataset.id)
+            fetch('http://localhost/project_1/'+document.getElementById('popup').getAttribute('data-pop')+'/update/'+a.dataset.id)
             .then(
                 response=>{
                     if (response.ok==false || response.status>299){
@@ -504,7 +506,7 @@ function updateAdmin(a){
 function deleteAdmin(a){
     id=a.dataset.id;
 
-    fetch('index.php?cl='+document.getElementById('popup').getAttribute('data-pop')+'&me=delete&id='+id)
+    fetch('http://localhost/project_1/'+document.getElementById('popup').getAttribute('data-pop')+'/delete/'+id)
     .then(
         response=>{
             if (response.ok==false || response.status>299){
@@ -554,7 +556,7 @@ d.addEventListener('DOMContentLoaded',()=>{
     })
     setTimeout(()=>{
         administracion(document.querySelector('[data-ruta]').getAttribute('data-ruta'))
-        $pop.setAttribute('data-pop','usuario')
+        $pop.setAttribute('data-pop','user')
 
     }
         ,2000
@@ -563,12 +565,13 @@ d.addEventListener('DOMContentLoaded',()=>{
         e.addEventListener('click',el=>{
             $showed=document.querySelector('#popover').classList.toggle('d-none')
             if (!$showed){
-            fetch('templates/crear'+document.getElementById('popup').getAttribute('data-pop')+'.php')
+            console.log('http://localhost/project_1/'+document.getElementById('popup').getAttribute('data-pop')+'/showCreate');
+            fetch('http://localhost/project_1/'+document.getElementById('popup').getAttribute('data-pop')+'/showCreate')
             .then(
                 response=>{
                     if (response.ok==false || response.status>299){
-                        return Promise.reject({err:"Error, no se encontro el archivo"})   
-                    response[0]}
+                        return Promise.reject("Error, no se encontro el archivo")   
+                    }
                     return response.text()
                 }
                 
@@ -582,7 +585,7 @@ d.addEventListener('DOMContentLoaded',()=>{
             )
             .catch(
                 err=>{
-                    console.error(err.err)
+                    console.error(err)
                 }
             )
             }

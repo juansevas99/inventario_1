@@ -6,21 +6,21 @@
         <div class="navbar navbar-expand-xl justify-content-end ">
 
             <button class="navbar-toggler mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#Items" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><img src="./media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
+                <span class="navbar-toggler-icon"><img src="http://localhost/project_1/assets/media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
             </button>
 
             <div class="collapse navbar-collapse" id="Items">
                 <ul class="navbar-nav">
-                    <a class="btn btn-light" style="color: black;" data-ruta="usuario" href="#">Usuarios</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="proveedor" href="#">Proveedores</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="marca" href="#">Marcas</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="atributo" href="#">Atributos</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="medida" href="#">Medida</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="tipo_salida" href="#">Tipo de salida</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="tipo_entrada" href="#">Tipo de entrada</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="producto" href="#">Productos</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="ordenCompra" href="#">Orden Compra</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="categoria" href="#">Categoria de Productos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="user" href="#">Usuarios</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="supplier" href="#">Proveedores</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="brand" href="#">Marcas</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="features" href="#">Atributos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="measure" href="#">Medida</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="type_outputs" href="#">Tipo de salida</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="type_entries" href="#">Tipo de entrada</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="product" href="#">Productos</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="purchaseOrder" href="#">Orden Compra</a>
+                    <a class="btn btn-light" style="color: black;" data-ruta="category" href="#">Categoria de Productos</a>
                     <a class="btn btn-light" style="color: black;" data-ruta="rol" href="#">Roles</a>
                 </ul>
             </div>

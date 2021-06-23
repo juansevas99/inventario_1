@@ -1,5 +1,5 @@
 
-<form action="index.php?cl=medida&me=insertar" method="POST">
+<form action="http://localhost/project_1/measure/create" method="POST">
 <div class="input-form">
 <label for="">Medida</label>
 <input name="nombre_medida" type="text" class="form-control">

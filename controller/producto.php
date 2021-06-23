@@ -33,6 +33,10 @@
      public function productoView(){
         header('Location: templates/productos.html');
     }
+    
+    public function prepararCreacion(){
+        include "templates/crearProducto.php";
+    }
     public function insertar(){
      
         
