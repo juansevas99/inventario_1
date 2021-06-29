@@ -7,6 +7,7 @@ $metodo=!empty($ruta[3])?$ruta[3]:"";
 $_GET["id"]=!empty($ruta[4])?$ruta[4]:"";
 
     $ruta=$clase."/".$metodo;
+    
 
 // Cree ls rurutas/admtas aqui debajo
 web::registrarRutas("/","rutas","productos");
@@ -21,6 +22,7 @@ web::registrarRutas("routes/error","rutas","error");
 
 // usuario
 web::registrarRutas("user/login","usuario","login");
+web::registrarRutas("user/create","usuario","signUp");
 web::registrarRutas("user/list","usuario","visualizar");
 web::registrarRutas("user/close","usuario","cerrarSesion");
 web::registrarRutas("user/delete","usuario","delete");
@@ -85,8 +87,8 @@ web::registrarRutas("type_outputs/confirmUpdate","tipo_salida","confirmarActuali
 
 
 #type_entries
-web::registrarRutas("type_entries/list","type_entries","visualizar");
-web::registrarRutas("type_entries/create","type_entries","insertar");
+web::registrarRutas("type_entries/list","tipo_entrada","visualizar");
+web::registrarRutas("type_entries/create","tipo_entrada","insertar");
 web::registrarRutas("type_entries/update","tipo_entrada","actualizar");
 web::registrarRutas("type_entries/delete","tipo_entrada","delete");
 web::registrarRutas("type_entries/showCreate","tipo_entrada","prepararCreacion");
@@ -131,4 +133,36 @@ web::registrarRutas("reports/entries","reportes","entradas");
 web::registrarRutas("reports/outputs","reportes","salidas");
 
 
+
+#estado
+
+web::registrarRutas("state/list","estado","visualizar");
+web::registrarRutas("state/create","estado","insertar");
+web::registrarRutas("state/update","estado","actualizar");
+web::registrarRutas("state/delete","estado","delete");
+web::registrarRutas("state/showCreate","estado","prepararCreacion");
+web::registrarRutas("state/confirmUpdate","estado","confirmarActualizar");
+
+
+
+
+
+//entries
+// web::registrarRutas("entries/list","entradas","visualizar");
+web::registrarRutas("entries/create","entradas","insertar");
+web::registrarRutas("entries/update","entradas","actualizar");
+web::registrarRutas("entries/delete","entradas","delete");
+web::registrarRutas("entries/showCreate","entradas","prepararCreacion");
+web::registrarRutas("entries/confirmUpdate","entradas","confirmarActualizar");
+
+
+
+
+//outputs
+// web::registrarRutas("outputs/list","salidas","visualizar");
+web::registrarRutas("outputs/create","salidas","insertar");
+web::registrarRutas("outputs/update","salidas","actualizar");
+web::registrarRutas("outputs/delete","salidas","delete");
+web::registrarRutas("outputs/showCreate","salidas","prepararCreacion");
+web::registrarRutas("outputs/confirmUpdate","salidas","confirmarActualizar");
 ?>

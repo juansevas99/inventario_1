@@ -33,7 +33,7 @@ class salidas extends Controller{
 
     // }
 
-    public function crear(){
+    public function insertar(){
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
             unset($_POST['crear']);
             // var_dump($_POST);

@@ -45,14 +45,20 @@ class usuario extends Controller
             $buffer = $this->model->buffer;
         } else {
             if (!$this->model->data) {
+                
                 $this->model->insert_($_POST);
-
-                session_start();
+                // $headers =  'IM' . "\r\n"; 
+                // $headers .= 'From: IM inventory <juansevas992010@gmail.com>' . "\r\n";
+                // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
+                // $headers .="Tenga un buen dia \n Se acaba de crear un usuario en la pagina IM\n Podra visitar la siguiente  url  https://boseto.000webhostapp.com/ con las siguientes credenciales: \nUsuario: ".$_POST["correo"]."\n Password: ".$_POST["password"] ;
+                // $response=mail($_POST["correo"],"Bienvenido a IM",$headers);
+                // echo $response;
+            //    exit();
                 $_SESSION['serverResponse'] = "Registro Exitoso, Ahora puede entrar al sistema";
             } else {
                 $_SESSION['serverResponse'] = "No se registro correctamente, vuelva a intentarlo";
             }
-            header("Location:index.php?cl=rutas&me=administracion");
+            header("Location: http://localhost/project_1/routes/admin");
 
         }
     }
@@ -144,7 +150,7 @@ class usuario extends Controller
 
     function delete(){
         $this->model->delete_(['id_usuario'=>$_GET['id']]);
-        $this->visualizar();
+        header("Location: http://localhost/project_1/routes/admin");
     }
 
     public function cerrarSesion()
@@ -152,4 +158,5 @@ class usuario extends Controller
         session_destroy();
         header('Location: /project_1');
     }
+    
 }

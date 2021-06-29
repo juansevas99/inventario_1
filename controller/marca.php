@@ -61,7 +61,7 @@ class marca extends Controller{
       
         
     
-        header("Location: ?cl=rutas&me=administracion");
+        header("Location: http://localhost/project_1/routes/admin");
 
 
         

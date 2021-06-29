@@ -67,8 +67,7 @@ class proveedor extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: index.php?cl=rutas&me=administracion");
-
+        header("Location: http://localhost/project_1/routes/admin");
 
         
         
@@ -78,7 +77,7 @@ class proveedor extends Controller{
     function delete(){
         $this->model->delete_(['id_proveedor'=>$_GET['id']]);
         $this->visualizar();
-    }
+        }
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){

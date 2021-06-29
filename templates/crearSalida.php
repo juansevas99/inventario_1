@@ -8,7 +8,7 @@
         ?>
     </h1>
 
-    <form action="http://localhost/project_1/output/create" method="POST">
+    <form action="http://localhost/project_1/outputs/create" method="POST">
 
         <br>
         <br>

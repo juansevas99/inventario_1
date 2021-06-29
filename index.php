@@ -102,7 +102,7 @@ if (web::ValidarRutas($ruta)){
 }
 else{
     
-    header("Location: rutas/error");
+    header("Location: http://localhost/project_1/routes/error");
 
 }
 

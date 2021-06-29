@@ -37,93 +37,26 @@
             </div>
         </div>
 
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Creacion de ...</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form action="">
-                    <div class="form-group">
-                        <label for="">Nombre</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>                            
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>                        
-                </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Crear</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
+       
 
 
           <!--  -->
 
+          <div id="popoverUpdate" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
+    <div onclick="updateAdmin()" class="btn-dark btn">Cerrar</div>
+    <div class="d-flex">
 
-          <div class="modal fade" id="actualizar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Actualizacion de ...</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form action="">
-                    <div class="form-group">
-                        <label for="">Nombre</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>                            
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Otro form</label>
-                        <input class="form-control" type="text">
-                    </div>                        
-                </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Crear</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="m-auto bg-light p-5">
+        </div>
+    </div>
+</div>
+         
     </main>
 
 </div>
 
 
+<div id="popup" class="d-none" data-pop="product"></div>
     
    
 </body>

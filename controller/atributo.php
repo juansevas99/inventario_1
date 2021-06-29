@@ -101,7 +101,7 @@ class atributo extends Controller{
         }
         
     
-        header("Location: ?cl=atributo&me=visualizarAtributos");
+        header("Location: http://localhost/project_1/routes/admin");
 
 
         

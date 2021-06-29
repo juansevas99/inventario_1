@@ -29,17 +29,17 @@ class entradas extends Controller{
 
     // }
 
-    public function prepararCreacion(){
-        include "templates/crearEntrada.php";
-    }
-    public function crear(){
+    // public function prepararCreacion(){
+    //     include "templates/crearEntrada.php";
+    // }
+    public function insertar(){
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
             unset($_POST['crear']);
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: index.php?cl=rutas&me=ordenCompra");
-        }
+            header("Location: http://localhost/project_1/routes/management");
+            }
         else{
             
             $variables=["titulo"=>"Creacion de entradas","referencia"=>$_GET["id"]];

@@ -63,7 +63,7 @@ function administracion(element){
 function crearProducto(){
     // por ahora, la busqueda de datos en cada Select no dependera de la vista si no de la logica que se maneje en Javascript
     document.querySelector('[name="estado_id_estado"]').addEventListener('focus',el=>{
-        fetch('index.php?cl=estado&me=visualizar')
+        fetch('http://localhost/project_1/state/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -91,7 +91,7 @@ function crearProducto(){
         );
     });
     document.querySelector('[name="categoria_id_categoria"]').addEventListener('focus',()=>{
-        fetch('index.php?cl=categoria&me=visualizar')
+        fetch('http://localhost/project_1/category/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -122,7 +122,7 @@ function crearProducto(){
         );
     });
     document.querySelector('[name="proveedor_id_proveedor"]').addEventListener('focus',()=>{
-        fetch('index.php?cl=proveedor&me=visualizar')
+        fetch('http://localhost/project_1/supplier/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -153,7 +153,7 @@ function crearProducto(){
         );
     });
     document.querySelector('[name="marca_id_marca"]').addEventListener('click',()=>{
-        fetch('index.php?cl=marca&me=visualizar')
+        fetch('http://localhost/project_1/brand/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -256,7 +256,7 @@ function productos(){
 
 function planeacion(){
     document.querySelector('[name="producto_id_producto"]').addEventListener('focus',()=>{
-        fetch('index.php?cl=producto&me=visualizar')
+        fetch('http://localhost/project_1/product/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -287,7 +287,7 @@ function planeacion(){
         );
     });
     document.querySelector('[name="proveedor_id_proveedor"]').addEventListener('focus',()=>{
-        fetch('index.php?cl=proveedor&me=visualizar')
+        fetch('http://localhost/project_1/supplier/list')
         .then(
             response=>{
                 if (response.ok==false || response.status>299){
@@ -319,7 +319,7 @@ function planeacion(){
     });
 }
 function gestionInventario(){
-    fetch('index.php?cl=ordenCompra&me=visualizar',{
+    fetch('http://localhost/project_1/purchaseOrder/list',{
         method:"GET"
     }).then(
 
@@ -349,7 +349,7 @@ function gestionInventario(){
                     $cadenaCuerpo+="<td>"+response[j][Object.keys(response[0])[k]]+"</td>"
                 }
                 
-                $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='index.php?cl=entradas&me=crear&id="+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='index.php?cl=salidas&me=crear&id="+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning'>Gestionar Salidas</a></td></tr>";
+                $cadenaCuerpo+="<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='http://localhost/project_1/entries/create/"+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='http://localhost/project_1/outputs/create/"+response[j][Object.keys(response[0])[0]]+"' class='btn btn-warning'>Gestionar Salidas</a></td></tr>";
 
                 
             }

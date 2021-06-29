@@ -7,7 +7,7 @@
                 echo $titulo; //Verificar si esto debe ser una desicion de Front o  de back
                 ?>
             </h1>
-            <form action="index.php?cl=ordencompra&me=insertar" method="POST">
+            <form action="http://localhost/project_1/purchaseOrder/create" method="POST">
                 <div class="input-form">
                     <label for="">Cantidad</label>
                     <input type="text" name="cantidad" class="form-control">

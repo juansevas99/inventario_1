@@ -32,10 +32,12 @@ public function insert($query,$filtros){
     $formatear=new formatearConsulta();
     $query.=$formatear->insert($filtros);
     $query.=" )";
+
+    
    
-    // var_dump($query);
-    // exit();
+    
     $this->prepararSentencia($query,$filtros);
+    $this->data=$this->stmt;
     
 
 } 

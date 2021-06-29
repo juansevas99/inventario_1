@@ -17,7 +17,7 @@ class tipo_entrada extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
-
+        
         echo json_encode($this->model->data);
     }
     public function prepararCreacion(){
@@ -57,8 +57,7 @@ class tipo_entrada extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: index.php?cl=rutas&me=administracion");
-
+        header("Location: http://localhost/project_1/routes/admin");
 
         
         
