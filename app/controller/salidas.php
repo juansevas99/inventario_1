@@ -9,7 +9,7 @@ class salidas extends Controller{
     }
     
     public function prepararCreacion(){
-        include "templates/crearSalida.php";
+        include "resources/templates/crearSalida.php";
     }
     // public function visualizar(){
     //     $estructura=[

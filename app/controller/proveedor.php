@@ -1,17 +1,21 @@
 <?php
-class categoria extends Controller{
-    public function __construct()
+class proveedor extends Controller{
+    function __construct()
     {
-        parent::__construct("categoria_m");
+        parent::__construct("proveedor_m");
         
     }
-
-
+    
+    public function prepararCreacion(){
+        include "resources/templates/crearproveedor.php";
+    }
     function visualizar(){
-        $estructura=[  // it provides and structure (select fields)
-            'id_categoria' => 'Id',
-             'nombre_categoria' => 'Nombre'
-        ];
+        $estructura=[
+            'id_proveedor' => 'Id',
+        	'nombre_proveedor' => 'Nombre',
+            'correo'  => 'Correo',
+            'documento'  => 'Documento',
+            'telefono' => 'Telefono'];
         
         $filtros="";
         if (isset($_POST['send'])){
@@ -19,42 +23,28 @@ class categoria extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
+        
+
+        echo json_encode($this->model->data);
     
-        echo json_encode($this->model->data);   
-        
+       
+      
     }
-
-
-    function visualizarConPaginacion(){
-        $estructura=[
-            'id_categoria' => 'Id',
-             'nombre_categoria' => 'Nombre'
-        ];
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        
-        $pagina=new paginacion($this->model);
-
-
-    }
-
-    public function prepararCreacion(){
-        include "templates/crearcategoria.php";
-    }
-
+    
+    
     function actualizar(){
 
         $estructura=[
-            'id_categoria' => 'id_categoria',
-             'nombre_categoria' => 'nombre_categoria'
-        ];
-        $this->model->select_($estructura,['id_categoria'=>$_GET['id']]);
+            'id_proveedor' => 'id_proveedor',
+        	'nombre_proveedor' => 'nombre_proveedor',
+            'correo'  => 'correo',
+            'documento'  => 'documento',
+            'telefono' => 'telefono'];
+
+        $this->model->select_($estructura,['id_proveedor'=>$_GET['id']]);
         $data=$this->model->data;
 
-        include 'templates/actualizarCategoria.php';
+        include 'resources/templates/actualizarproveedor.php';
 
     }
     function confirmarActualizar(){
@@ -79,16 +69,15 @@ class categoria extends Controller{
 
         header("Location: http://localhost/project_1/routes/admin");
 
-
         
         
 
     }
 
     function delete(){
-        $this->model->delete_(['id_categoria'=>$_GET['id']]);
+        $this->model->delete_(['id_proveedor'=>$_GET['id']]);
         $this->visualizar();
-    }
+        }
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
@@ -96,9 +85,13 @@ class categoria extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin");
-        }
+            header("Location: http://localhost/project_1/routes/admin"); 
+                }
        
     }
 }
+
+    
+    
+
 ?>

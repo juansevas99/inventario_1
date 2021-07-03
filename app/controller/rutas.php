@@ -30,13 +30,13 @@ class rutas extends Controller{
     }
     public function error(){
         $titulo="ERROR 404";
-        include "templates/error/404.php";
+        include "resources/templates/error/404.php";
     }
 
     public function errorSQL(){
         
         
-        include "templates/error/errorSQL.php";
+        include "resources/templates/error/errorSQL.php";
     }
 
 

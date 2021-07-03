@@ -10,7 +10,7 @@ class reportes extends Controller{
         }
         else{
             $this->view="reports";
-            include 'lib/templates.php';
+            include 'lib/resources/templates.php';
         }
     }
 

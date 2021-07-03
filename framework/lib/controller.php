@@ -9,7 +9,7 @@ class Controller {
     // 
 
     {
-        $modelRuta="model/".$model.".php";
+        $modelRuta="app/model/".$model.".php";
         if (file_exists($modelRuta)){
             include $modelRuta;
             $this->model=new $model;

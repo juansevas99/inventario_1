@@ -1,15 +1,13 @@
 <?php
-include_once 'lib/controller.php';
-include_once 'lib/conn.php';
-include_once 'lib/iadministrion.php';
-include_once 'lib/formatearConsulta.php';
-include_once 'lib/model.php';
-include_once 'lib/factoryModel.php';
-include_once 'lib/view.php';
+include_once 'framework/lib/controller.php';
+include_once 'framework/lib/conn.php';
+include_once 'framework/lib/iadministrion.php';
+include_once 'framework/lib/formatearConsulta.php';
+include_once 'framework/lib/model.php';
+include_once 'framework/lib/factoryModel.php';
+include_once 'framework/lib/view.php';
 include_once 'web/web.php';
 include_once 'web/iniciarRutas.php';
-
-
 
 
 session_start();
@@ -27,7 +25,7 @@ if (web::ValidarRutas($ruta)){
         else{
         
             
-            include_once 'templates/login.php';
+            include_once 'resources/templates/login.php';
         }
 
     }

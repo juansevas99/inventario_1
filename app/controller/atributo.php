@@ -62,7 +62,7 @@ class atributo extends Controller{
 
         $this->model->select_($estructura,['id_marca'=>$_GET['id']]);
         $data=$this->model->data;
-        include 'templates/actualizarmarca.php';
+        include 'resources/templates/actualizarmarca.php';
         
     }
     function confirmarActualizacion(){
@@ -127,7 +127,7 @@ class atributo extends Controller{
     }
 
     public function prepararCreacion(){
-        include "templates/crearatributo.php";
+        include "resources/templates/crearatributo.php";
     }
 }
 

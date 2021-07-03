@@ -1,43 +1,63 @@
 <?php
-class marca extends Controller{
-    function __construct()
+class categoria extends Controller{
+    public function __construct()
     {
-        parent::__construct("marca_m");
+        parent::__construct("categoria_m");
         
     }
 
+
     function visualizar(){
-        $estructura=[
-            'id_marca'=> 'Id',
-            'nombre' => 'Nombre'
+        $estructura=[  // it provides and structure (select fields)
+            'id_categoria' => 'Id',
+             'nombre_categoria' => 'Nombre'
         ];
+        
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
-        echo json_encode($this->model->data);
+    
+        echo json_encode($this->model->data);   
         
-     
     }
-    function actualizar(){
-      
-        $estructura=[
-            'id_marca'=> 'id_marca',
-            'nombre' => 'nombre'
-        ];
 
-        $this->model->select_($estructura,['id_marca'=>$_GET['id']]);
-        $data=$this->model->data;
-        include 'templates/actualizarmarca.php';
+
+    function visualizarConPaginacion(){
+        $estructura=[
+            'id_categoria' => 'Id',
+             'nombre_categoria' => 'Nombre'
+        ];
+        $filtros="";
+        if (isset($_POST['send'])){
+            unset($_POST['send']);
+            $filtros=$_POST;
+        }
         
+
+
     }
 
     public function prepararCreacion(){
-        include "templates/crearmarca.php";
+        include "resources/templates/crearcategoria.php";
+    }
+
+    function actualizar(){
+
+        $estructura=[
+            'id_categoria' => 'id_categoria',
+             'nombre_categoria' => 'nombre_categoria'
+        ];
+        $this->model->select_($estructura,['id_categoria'=>$_GET['id']]);
+        $data=$this->model->data;
+
+        include 'resources/templates/actualizarCategoria.php';
+
     }
     function confirmarActualizar(){
+
             
             $filtros=[];
             $valores=[];
@@ -53,14 +73,9 @@ class marca extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-            // exit();
-    //    
+            // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
-        // 
 
-      
-        
-    
         header("Location: http://localhost/project_1/routes/admin");
 
 
@@ -68,8 +83,9 @@ class marca extends Controller{
         
 
     }
+
     function delete(){
-        $this->model->delete_(['id_marca'=>$_GET['id']]);
+        $this->model->delete_(['id_categoria'=>$_GET['id']]);
         $this->visualizar();
     }
     function insertar(){
@@ -79,13 +95,9 @@ class marca extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
-                }
+            header("Location: http://localhost/project_1/routes/admin");
+        }
        
     }
 }
-
-    
-    
-
 ?>

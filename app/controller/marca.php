@@ -1,14 +1,15 @@
 <?php
-class tipo_salida extends Controller{
+class marca extends Controller{
     function __construct()
     {
-        parent::__construct("tipo_salida_m");
-       
+        parent::__construct("marca_m");
+        
     }
+
     function visualizar(){
         $estructura=[
-        'id_tipo_salida'=>'Id',
-        'nombre_tipo_salida' => 'Tipos'
+            'id_marca'=> 'Id',
+            'nombre' => 'Nombre'
         ];
         $filtros="";
         if (isset($_POST['send'])){
@@ -16,28 +17,27 @@ class tipo_salida extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
-
         echo json_encode($this->model->data);
+        
+     
+    }
+    function actualizar(){
+      
+        $estructura=[
+            'id_marca'=> 'id_marca',
+            'nombre' => 'nombre'
+        ];
+
+        $this->model->select_($estructura,['id_marca'=>$_GET['id']]);
+        $data=$this->model->data;
+        include 'resources/templates/actualizarmarca.php';
+        
     }
 
     public function prepararCreacion(){
-        include "templates/creartipo_salida.php";
-    }
-    function actualizar(){
-
-        $estructura=[
-            'id_tipo_salida'=>'id_tipo_salida',
-            'nombre_tipo_salida' => 'nombre_tipo_salida'
-            ];
-
-        $this->model->select_($estructura,['id_tipo_salida'=>$_GET['id']]);
-        $data=$this->model->data;
-
-        include 'templates/actualizarTipoSalida.php';
-
+        include "resources/templates/crearmarca.php";
     }
     function confirmarActualizar(){
-
             
             $filtros=[];
             $valores=[];
@@ -53,14 +53,24 @@ class tipo_salida extends Controller{
                     $filtros[$key]=$value;
                 }
             }
-            // var_dump($filtros,$valores);
+            // exit();
+    //    
         $this->model->update_($valores,$filtros);
+        // 
 
+      
+        
+    
         header("Location: http://localhost/project_1/routes/admin");
 
+
         
         
 
+    }
+    function delete(){
+        $this->model->delete_(['id_marca'=>$_GET['id']]);
+        $this->visualizar();
     }
     function insertar(){
         
@@ -70,17 +80,12 @@ class tipo_salida extends Controller{
             // exit();
             $this->model->insert_($_POST);
             header("Location: http://localhost/project_1/routes/admin"); 
-        }
+                }
        
     }
-    function delete(){
-        $this->model->delete_(['id_tipo_salida'=>$_GET['id']]);
-        $this->visualizar();
-    }
-
-
-
-    
-    
 }
+
+    
+    
+
 ?>

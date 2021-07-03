@@ -1,54 +1,44 @@
 <?php
 
-class medida extends Controller{
-    public function __construct(){
-        parent::__construct('medida_m');
-
-
-
+class rol extends Controller{
+    public function __construct()
+    {
+        parent::__construct("rol_m");
+        
     }
 
-    
+
     public function prepararCreacion(){
-        include "templates/crearmedida.php";
+        include "resources/templates/crearrol.php";
     }
-    public function visualizar(){
+    function visualizar(){
         $estructura=[
-        'id_medida'=>'id_medida',
-        'nombre_medida' => 'Nombre' ];
+            'id_rol'=>'id_rol',
+            	'rol' => 'Rol'
+        ];
+
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
+    
         echo json_encode($this->model->data);   
-
-
-    }
-    function insertar(){
         
-        if (isset($_POST['crear']) && !empty($_POST['crear'])){
-            unset($_POST['crear']);
-            // var_dump($_POST);
-            // exit();
-            $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
-                }
-       
     }
-
 
     function actualizar(){
 
         $estructura=[
-            'id_medida'=>'id_medida',
-            'nombre_medida' => 'nombre_medida' ];
+            'id_rol'=>'id_rol',
+            	'rol' => 'rol'
+        ];
 
-        $this->model->select_($estructura,['id_medida'=>$_GET['id']]);
+        $this->model->select_($estructura,['id_rol'=>$_GET['id']]);
         $data=$this->model->data;
 
-        include 'templates/actualizarmedida.php';
+        include 'resources/templates/actualizarRol.php';
 
     }
     function confirmarActualizar(){
@@ -78,7 +68,18 @@ class medida extends Controller{
 
     }
     function delete(){
-        $this->model->delete_(['id_medida'=>$_GET['id']]);
-        $this->visualizar();  
-      }
+        $this->model->delete_(['id_rol'=>$_GET['id']]);
+        $this->visualizar();
+    }
+    function insertar(){
+        
+        if (isset($_POST['crear']) && !empty($_POST['crear'])){
+            unset($_POST['crear']);
+            // var_dump($_POST);
+            // exit();
+            $this->model->insert_($_POST);
+            header("Location: http://localhost/project_1/routes/admin"); 
+                }
+       
+    }
 }

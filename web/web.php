@@ -28,7 +28,7 @@ class web{
     static function validarArchivos($rutaBar){
         
         spl_autoload_register(function ($class_name) {
-            $file="controller/".$class_name.".php";
+            $file="app/controller/".$class_name.".php";
             if (file_exists($file)){
                 
                 include $file;

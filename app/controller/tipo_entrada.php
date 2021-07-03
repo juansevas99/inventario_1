@@ -1,22 +1,16 @@
 <?php
-class proveedor extends Controller{
+class tipo_entrada extends Controller{
     function __construct()
     {
-        parent::__construct("proveedor_m");
-        
-    }
-    
-    public function prepararCreacion(){
-        include "templates/crearproveedor.php";
+        parent::__construct("tipo_entrada_m");
+       
     }
     function visualizar(){
         $estructura=[
-            'id_proveedor' => 'Id',
-        	'nombre_proveedor' => 'Nombre',
-            'correo'  => 'Correo',
-            'documento'  => 'Documento',
-            'telefono' => 'Telefono'];
-        
+        'id_tipos_entrada'=>'Id',
+         'nomnre_tipos_entrada' => 'Tipos'
+
+        ];
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
@@ -24,27 +18,23 @@ class proveedor extends Controller{
         }
         $this->model->select_($estructura,$filtros);
         
-
         echo json_encode($this->model->data);
-    
-       
-      
     }
-    
-    
+    public function prepararCreacion(){
+        include "resources/templates/creartipo_entrada.php";
+    }
     function actualizar(){
 
         $estructura=[
-            'id_proveedor' => 'id_proveedor',
-        	'nombre_proveedor' => 'nombre_proveedor',
-            'correo'  => 'correo',
-            'documento'  => 'documento',
-            'telefono' => 'telefono'];
+            'id_tipos_entrada'=>'id_tipos_entrada',
+             'nomnre_tipos_entrada' => 'nomnre_tipos_entrada'
+    
+            ];
 
-        $this->model->select_($estructura,['id_proveedor'=>$_GET['id']]);
+        $this->model->select_($estructura,['id_tipos_entrada'=>$_GET['id']]);
         $data=$this->model->data;
 
-        include 'templates/actualizarproveedor.php';
+        include 'resources/templates/actualizarTipoEntrada.php';
 
     }
     function confirmarActualizar(){
@@ -74,10 +64,6 @@ class proveedor extends Controller{
 
     }
 
-    function delete(){
-        $this->model->delete_(['id_proveedor'=>$_GET['id']]);
-        $this->visualizar();
-        }
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
@@ -89,9 +75,15 @@ class proveedor extends Controller{
                 }
        
     }
+    
+    function delete(){
+        $this->model->delete_(['id_tipos_entrada'=>$_GET['id']]);
+        $this->visualizar();
+    }
+
+
+
+    
+    
 }
-
-    
-    
-
 ?>

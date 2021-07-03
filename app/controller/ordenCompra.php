@@ -9,7 +9,7 @@ class ordenCompra extends Controller{
     }
     
     public function prepararCreacion(){
-        include "templates/error/404.php";
+        include "resources/templates/error/404.php";
     }
     public function visualizar(){
         $estructura=[

@@ -65,7 +65,7 @@ class usuario extends Controller
 
 
     public function prepararCreacion(){
-        include "templates/crearusuario.php";
+        include "resources/templates/crearusuario.php";
     }
     public function login()
     {
@@ -116,7 +116,7 @@ class usuario extends Controller
         
         $this->model->select_($estructura,["id_usuario"=>$filtros]);
         $data=$this->model->data;
-        include 'templates/actualizarUsuario.php';
+        include 'resources/templates/actualizarUsuario.php';
 
     }
     public function confirmarActualizar(){

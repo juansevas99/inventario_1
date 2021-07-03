@@ -31,11 +31,11 @@
      }
 
      public function productoView(){
-        header('Location: templates/productos.html');
+        header('Location: resources/templates/productos.html');
     }
     
     public function prepararCreacion(){
-        include "templates/crearProducto.php";
+        include "resources/templates/crearProducto.php";
     }
     public function insertar(){
      

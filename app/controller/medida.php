@@ -1,44 +1,54 @@
 <?php
 
-class rol extends Controller{
-    public function __construct()
-    {
-        parent::__construct("rol_m");
-        
+class medida extends Controller{
+    public function __construct(){
+        parent::__construct('medida_m');
+
+
+
     }
 
-
+    
     public function prepararCreacion(){
-        include "templates/crearrol.php";
+        include "resources/templates/crearmedida.php";
     }
-    function visualizar(){
+    public function visualizar(){
         $estructura=[
-            'id_rol'=>'id_rol',
-            	'rol' => 'Rol'
-        ];
-
+        'id_medida'=>'id_medida',
+        'nombre_medida' => 'Nombre' ];
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
-    
         echo json_encode($this->model->data);   
-        
+
+
     }
+    function insertar(){
+        
+        if (isset($_POST['crear']) && !empty($_POST['crear'])){
+            unset($_POST['crear']);
+            // var_dump($_POST);
+            // exit();
+            $this->model->insert_($_POST);
+            header("Location: http://localhost/project_1/routes/admin"); 
+                }
+       
+    }
+
 
     function actualizar(){
 
         $estructura=[
-            'id_rol'=>'id_rol',
-            	'rol' => 'rol'
-        ];
+            'id_medida'=>'id_medida',
+            'nombre_medida' => 'nombre_medida' ];
 
-        $this->model->select_($estructura,['id_rol'=>$_GET['id']]);
+        $this->model->select_($estructura,['id_medida'=>$_GET['id']]);
         $data=$this->model->data;
 
-        include 'templates/actualizarRol.php';
+        include 'resources/templates/actualizarmedida.php';
 
     }
     function confirmarActualizar(){
@@ -68,18 +78,7 @@ class rol extends Controller{
 
     }
     function delete(){
-        $this->model->delete_(['id_rol'=>$_GET['id']]);
-        $this->visualizar();
-    }
-    function insertar(){
-        
-        if (isset($_POST['crear']) && !empty($_POST['crear'])){
-            unset($_POST['crear']);
-            // var_dump($_POST);
-            // exit();
-            $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
-                }
-       
-    }
+        $this->model->delete_(['id_medida'=>$_GET['id']]);
+        $this->visualizar();  
+      }
 }

@@ -1,15 +1,14 @@
 <?php
-class tipo_entrada extends Controller{
+class tipo_salida extends Controller{
     function __construct()
     {
-        parent::__construct("tipo_entrada_m");
+        parent::__construct("tipo_salida_m");
        
     }
     function visualizar(){
         $estructura=[
-        'id_tipos_entrada'=>'Id',
-         'nomnre_tipos_entrada' => 'Tipos'
-
+        'id_tipo_salida'=>'Id',
+        'nombre_tipo_salida' => 'Tipos'
         ];
         $filtros="";
         if (isset($_POST['send'])){
@@ -17,24 +16,24 @@ class tipo_entrada extends Controller{
             $filtros=$_POST;
         }
         $this->model->select_($estructura,$filtros);
-        
+
         echo json_encode($this->model->data);
     }
+
     public function prepararCreacion(){
-        include "templates/creartipo_entrada.php";
+        include "resources/templates/creartipo_salida.php";
     }
     function actualizar(){
 
         $estructura=[
-            'id_tipos_entrada'=>'id_tipos_entrada',
-             'nomnre_tipos_entrada' => 'nomnre_tipos_entrada'
-    
+            'id_tipo_salida'=>'id_tipo_salida',
+            'nombre_tipo_salida' => 'nombre_tipo_salida'
             ];
 
-        $this->model->select_($estructura,['id_tipos_entrada'=>$_GET['id']]);
+        $this->model->select_($estructura,['id_tipo_salida'=>$_GET['id']]);
         $data=$this->model->data;
 
-        include 'templates/actualizarTipoEntrada.php';
+        include 'resources/templates/actualizarTipoSalida.php';
 
     }
     function confirmarActualizar(){
@@ -63,7 +62,6 @@ class tipo_entrada extends Controller{
         
 
     }
-
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){
@@ -72,12 +70,11 @@ class tipo_entrada extends Controller{
             // exit();
             $this->model->insert_($_POST);
             header("Location: http://localhost/project_1/routes/admin"); 
-                }
+        }
        
     }
-    
     function delete(){
-        $this->model->delete_(['id_tipos_entrada'=>$_GET['id']]);
+        $this->model->delete_(['id_tipo_salida'=>$_GET['id']]);
         $this->visualizar();
     }
 
