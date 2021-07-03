@@ -34,7 +34,7 @@
         </div>
 
     </header>
-    <div class="container text-right" style="font-family: 'Zen Dots', cursive;">
+    <div class="container text-right" style="font-family: 'Zen Dots', cursive; font-size: 90%;" >
             <?php
                 echo isset($_SESSION['name_user'])?"Hola !! ".$_SESSION['name_user']:"";
             ?>

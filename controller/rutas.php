@@ -33,6 +33,12 @@ class rutas extends Controller{
         include "templates/error/404.php";
     }
 
+    public function errorSQL(){
+        
+        
+        include "templates/error/errorSQL.php";
+    }
+
 
 
 

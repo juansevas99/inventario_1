@@ -17,6 +17,7 @@ web::registrarRutas("routes/products","rutas","productos");
 web::registrarRutas("routes/planOrder","rutas","planeacion");
 web::registrarRutas("routes/reports","rutas","reportes");
 web::registrarRutas("routes/error","rutas","error");
+web::registrarRutas("routes/errorSQL","rutas","errorSQL");
 
 
 
@@ -165,4 +166,3 @@ web::registrarRutas("outputs/update","salidas","actualizar");
 web::registrarRutas("outputs/delete","salidas","delete");
 web::registrarRutas("outputs/showCreate","salidas","prepararCreacion");
 web::registrarRutas("outputs/confirmUpdate","salidas","confirmarActualizar");
-?>

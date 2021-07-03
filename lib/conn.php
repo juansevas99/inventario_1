@@ -69,10 +69,9 @@ class conn extends constantes{
             
             
         } catch (PDOException $e) {
-            $this->messageError = $e->getMessage();
-            ob_start();
-            include "templates/error.php";
-            $this->vistaError = ob_get_clean();
+            $variable="Error SQL:".$e->getMessage();
+            include "templates/error/errorSQL.php";
+            exit();
         }
     }
     public function prepararSentencia_update($sqlquery, $valores,$filtros)
@@ -137,10 +136,9 @@ class conn extends constantes{
             
             
         } catch (PDOException $e) {
-            $this->messageError = $e->getMessage();
-            ob_start();
-            include "templates/error.php";
-            $this->vistaError = ob_get_clean();
+            $variable="Error SQL:".$e->getMessage();
+            include "templates/error/errorSQL.php";
+            exit();
         }
     }
 }

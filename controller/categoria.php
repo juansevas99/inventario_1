@@ -8,10 +8,11 @@ class categoria extends Controller{
 
 
     function visualizar(){
-        $estructura=[
+        $estructura=[  // it provides and structure (select fields)
             'id_categoria' => 'Id',
              'nombre_categoria' => 'Nombre'
         ];
+        
         $filtros="";
         if (isset($_POST['send'])){
             unset($_POST['send']);
@@ -21,6 +22,23 @@ class categoria extends Controller{
     
         echo json_encode($this->model->data);   
         
+    }
+
+
+    function visualizarConPaginacion(){
+        $estructura=[
+            'id_categoria' => 'Id',
+             'nombre_categoria' => 'Nombre'
+        ];
+        $filtros="";
+        if (isset($_POST['send'])){
+            unset($_POST['send']);
+            $filtros=$_POST;
+        }
+        
+        $pagina=new paginacion($this->model);
+
+
     }
 
     public function prepararCreacion(){

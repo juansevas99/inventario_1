@@ -9,19 +9,19 @@
                 <span class="navbar-toggler-icon"><img src="http://localhost/project_1/assets/media/Menu_icon_2_icon-icons.com_71856.png" width="100%" alt=""></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="Items">
-                <ul class="navbar-nav">
-                    <a class="btn btn-light" style="color: black;" data-ruta="user" href="#">Usuarios</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="supplier" href="#">Proveedores</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="brand" href="#">Marcas</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="features" href="#">Atributos</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="measure" href="#">Medida</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="type_outputs" href="#">Tipo de salida</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="type_entries" href="#">Tipo de entrada</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="product" href="#">Productos</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="purchaseOrder" href="#">Orden Compra</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="category" href="#">Categoria de Productos</a>
-                    <a class="btn btn-light" style="color: black;" data-ruta="rol" href="#">Roles</a>
+            <div class="collapse navbar-collapse " id="Items">
+                <ul class="navbar-nav ">
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="user" href="#">Usuarios</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="supplier" href="#">Proveedores</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="brand" href="#">Marcas</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="features" href="#">Atributos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="measure" href="#">Medida</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_outputs" href="#">Tipo de salida</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_entries" href="#">Tipo de entrada</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="product" href="#">Productos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="purchaseOrder" href="#">Orden Compra</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="category" href="#">Categoria de Productos</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="rol" href="#">Roles</a>
                 </ul>
             </div>
         </div>
@@ -30,28 +30,37 @@
 
             <div class="d-block d-lg-flex justify-content-between">
 
-                <button data-pop="" type="button" class="btn btn-primary pop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button data-pop="" type="button" class="small btn btn-primary pop" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="font-size: 80%;">
                     Crear Registro
                 </button>
-                <div id="popup" class="d-none" data-pop=""></div>
-                <div class="d-flex align-items-center">
+                <div id="popup" class="d-none" data-pop="" ></div>
+                <div class="d-flex align-items-center" >
 
-                    <button class="btn">Otros Filtros</button>
+                    <button class="btn" style="font-size: 80%;">Otros Filtros</button>
                     <input class="form-control" type="select" placeholder="Busqueda por Id">
-                    <button class="btn" name="" id="">Search</button>
+                    <button class="btn" name="" id="" style="font-size: 80%;">Search</button>
                 </div>
             </div>
-            <div style="overflow-x: scroll;">
-                <table id="tabla-admin" class="table my-3">
-                    <thead class="cabecera">
+            <div style="overflow-x: scroll;" >
+                <table id="tabla-admin" class="table my-3" style="width: auto; margin: auto;"> 
+                    <thead class="cabecera small ">
 
                     </thead>
 
-                    <tbody class="cuerpo">
+                    <tbody class="cuerpo small">
 
 
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item  small"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item  small"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
 
