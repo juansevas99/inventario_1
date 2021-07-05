@@ -45,8 +45,9 @@ function administracion(element) {
         }
     ).then(
         response => {
-
+            // console.log(response)
             display(response);
+
         }
     ).catch(
         err => {

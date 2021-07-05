@@ -1,17 +1,17 @@
 <?php
 
-class all extends operation {
+class all extends aggregation {
     private $table;
     function __construct(operation $operation)
     {
         if ($operation->function=="select")
         {
-            $this->operation=$operation;
+            parent::__construct($operation);
             $this->model=$this->operation->model;
             $this->function="*";
             $this->table=$this->model->table;
             $this->filtros="";
-            parent::__construct();
+            
             
 
         }

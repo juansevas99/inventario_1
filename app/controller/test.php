@@ -7,10 +7,11 @@ class test extends Controller{
     }
     public function visualizar(){
         $operation=new select($this->model);
-    //    $operation=new all($operation);
+        // $operation=new all($operation);
         $operation=new columns($operation,["id_usuario"=>"Cod","usuario"=>"Usuario","correo"=>"Correo"]);
-        // $operation=new where($operation,["numeroIdentificacion"=>"123456","telefono"=>"46845348"]);
-        // $operation=new orderby($operation,["numeroIdentificacion"]);
+        // $operation=new where($operation,["id_usuario"=>2]);
+        
+        $operation=new orderby($operation,["usuario"]);
         $operation->run();
 
 

@@ -60,6 +60,8 @@ public function select($table,$estructura,$filtros){
 }
 
 public function listar($query,$filtros){
+    // var_dump($filtros);
+    // exit();
     $this->prepararSentencia($query,$filtros);
     if($this->stmt){
         $this->data=$this->stmt->fetchAll();

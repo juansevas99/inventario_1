@@ -7,7 +7,8 @@ class orderby extends aggregation{
             parent:: __construct($operation);
             $this->function="order by";
             $this->parameters=$parameters;
-            $this->filtros="";
+            $this->filtros=$operation->filtros;
+            $this->model=$operation->model;
         
         }
         else {

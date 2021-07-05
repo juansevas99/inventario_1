@@ -12,7 +12,7 @@ abstract class  operation {
     // this is the isolated strig formed. it is made up with the parameters passed. 
     protected $currentStringQuery;
 
-    protected $filtros;
+    public $filtros;
     function __construct()
     {
         
@@ -25,7 +25,7 @@ abstract class  operation {
     }
     public function run(){
         
-        $this->model->listar($this->concatenate(),$this->operation->filtros);
+        $this->model->listar($this->concatenate(),$this->filtros);
 
 
     }

@@ -116,6 +116,7 @@ class usuario extends Controller
         
         $this->model->select_($estructura,["id_usuario"=>$filtros]);
         $data=$this->model->data;
+        
         include 'resources/templates/actualizarUsuario.php';
 
     }

@@ -31,20 +31,21 @@ class conn extends constantes{
     }
     public function prepararSentencia($sqlquery, $filtros)
     {
+
         try {
             
             $this->stmt = $this->dbo->prepare($sqlquery);
             if ($filtros) {
 
                 foreach ($filtros as $key => $value) { 
-                    // var_dum  p($filtros);
-                    // exit();
+                  
                     if (!empty($value)) {
                         if (is_numeric($value)) {
                             
                             $this->stmt->bindValue(':' . $key, $value, PDO::PARAM_INT);
                             // echo "Entero :: LLave : ".$key."::  Valor : ".$value;
                             
+
                             continue;
 
                         }
@@ -63,8 +64,6 @@ class conn extends constantes{
                     
                 }
             }
-            // echo $this->stmt->queryString;
-            // exit();
             $this->stmt->execute();
             
             
