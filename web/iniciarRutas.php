@@ -18,6 +18,11 @@ web::registrarRutas("routes/planOrder","rutas","planeacion");
 web::registrarRutas("routes/reports","rutas","reportes");
 web::registrarRutas("routes/error","rutas","error");
 web::registrarRutas("routes/errorSQL","rutas","errorSQL");
+web::registrarRutas("routes/errorSQL","rutas","errorSQL");
+web::registrarRutas("routes/test","rutas","test");
+
+
+
 
 
 
@@ -166,3 +171,10 @@ web::registrarRutas("outputs/update","salidas","actualizar");
 web::registrarRutas("outputs/delete","salidas","delete");
 web::registrarRutas("outputs/showCreate","salidas","prepararCreacion");
 web::registrarRutas("outputs/confirmUpdate","salidas","confirmarActualizar");
+
+
+
+#test
+
+
+web::registrarRutas("test/list","test","visualizar");

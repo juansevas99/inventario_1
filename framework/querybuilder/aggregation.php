@@ -1,7 +1,6 @@
 <?php
-include 'operation.php';
 class aggregation extends operation{
-    public operation $operation;
+    
     
     function __construct(operation $operation)
     {   
@@ -12,13 +11,10 @@ class aggregation extends operation{
         
     }
     
-    public function concatenate(): string
-    {
-       return parent::concatenate();
-    }
-    public function run(){
+    
+    // public function run(){
 
-    }
+    // }
 
     
 }

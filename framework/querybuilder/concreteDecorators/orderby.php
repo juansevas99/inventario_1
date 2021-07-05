@@ -1,18 +1,36 @@
 <?php
-include "./aggregation.php";
 class orderby extends aggregation{
-    public function __construct(operation $operation)
+    public function __construct(operation $operation, $parameters=null)
     {
-        parent:: __construct($operation);
+        if ($operation->function=="select" || $operation->function=="where" ||  $operation->function=="from" ||$operation->function=="column" || $operation->function=="group by" || $operation->function=="inner")
+        {
+            parent:: __construct($operation);
+            $this->function="order by";
+            $this->parameters=$parameters;
+            $this->filtros="";
+        
+        }
+        else {
+            echo "The SQL structure here at where order by is wrong. Verify and try again!";
+            exit();
+        }
         
     }
     public function concatenate(): string
     {
-       return parent::concatenate();
+        if ($this->parameters)
+        {
+            $this->currentStringQuery=$this->function." ".implode(",",$this->parameters);
+            return $this->operation->concatenate()." ".$this->currentStringQuery;
+        }
+        else{
+            return "";
+        }
+        
     }
-    public function run(){
+    // public function run(){
 
-    }
+    // }
     
 }
 

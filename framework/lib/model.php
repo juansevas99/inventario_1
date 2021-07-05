@@ -59,6 +59,18 @@ public function select($table,$estructura,$filtros){
         }
 }
 
+public function listar($query,$filtros){
+    $this->prepararSentencia($query,$filtros);
+    if($this->stmt){
+        $this->data=$this->stmt->fetchAll();
+        
+        
+        // exit();
+        
+    }
+    
+}
+
 
 }
 

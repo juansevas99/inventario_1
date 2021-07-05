@@ -24,9 +24,9 @@ class rutas extends Controller{
         $variable="Gestion de inventario";
         $this->view->render("gestionInventario",$variable);
     }
-    public function test_1(){
+    public function test(){
         $variable="Test";
-        $this->view->render("test_1",$variable);
+        $this->view->render("test",$variable);
     }
     public function error(){
         $titulo="ERROR 404";
@@ -38,7 +38,7 @@ class rutas extends Controller{
         
         include "resources/templates/error/errorSQL.php";
     }
-
+   
 
 
 

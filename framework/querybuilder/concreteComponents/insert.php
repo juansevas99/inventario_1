@@ -1,6 +1,5 @@
 <?php
 
-include './operation.php';
 class insert extends operation {
     function __construct()
     {

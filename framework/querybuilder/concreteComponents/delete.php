@@ -1,6 +1,5 @@
 <?php
 
-include './operation.php';
 class delete extends operation {
     function __construct()
     {

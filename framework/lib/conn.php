@@ -70,7 +70,7 @@ class conn extends constantes{
             
         } catch (PDOException $e) {
             $variable="Error SQL:".$e->getMessage();
-            include "templates/error/errorSQL.php";
+            include "resources/templates/error/errorSQL.php";
             exit();
         }
     }
@@ -137,7 +137,7 @@ class conn extends constantes{
             
         } catch (PDOException $e) {
             $variable="Error SQL:".$e->getMessage();
-            include "templates/error/errorSQL.php";
+            include "resources/templates/error/errorSQL.php";
             exit();
         }
     }

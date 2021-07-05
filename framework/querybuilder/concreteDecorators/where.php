@@ -1,18 +1,53 @@
 <?php
-include "./aggregation.php";
 class where extends aggregation{
-    public function __construct(operation $operation)
+    public function __construct(operation $operation,$parameters=null)
     {
-        parent:: __construct($operation);
+
+        if ($operation->function=="select" || $operation->function=="column" || $operation->function=="*" || $operation->function=="set" || $operation->function=="from" || $operation->function=="column" || $operation->function=="delete")
+        {
+            parent:: __construct($operation);
+            $this->function="where";
+            $this->parameters=$parameters;
+            $this->filtros=$parameters;
+            
+        }
+        else{
+            echo "The SQL structure here at where clausure is wrong. Verify and try again!";
+            exit();
+        }
         
     }
     public function concatenate(): string
     {
-       return parent::concatenate();
-    }
-    public function run(){
 
+        if ($this->parameters){
+            $where="";
+            $i=0;
+            foreach ($this->parameters as $key => $value) {
+                if(!empty($value)){
+
+                    if($i==0){
+                        $where.=$key."= :".$key;
+                    }
+                    else{
+                        $where.=" and ".$key."= :".$key;
+                    }
+                    $i++;
+                }
+            }
+            $this->currentStringQuery=$this->function." ".$where;
+            return $this->operation->concatenate()." ".$this->currentStringQuery;
+        }
+        else{
+            return "";
+        }
+        
+        
+        
     }
+    // public function run(){
+
+    // }
     
 }
 

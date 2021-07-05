@@ -11,7 +11,6 @@ class formatearConsulta{
             $show=array_map(function($keys,$valores){
                 return $keys." as '".$valores."'";
             },array_keys($estructura),array_values($estructura));
-            
             $show=implode(',',$show);
             
         }

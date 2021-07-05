@@ -35,8 +35,8 @@ class web{
                 
             }
             else{
-
-                echo "file not found";
+                
+                echo $file;
                 exit();
                 // header("Location: rutas/error");
                 

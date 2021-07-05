@@ -9,6 +9,7 @@
                 <a class="nav-link btn btn-light" href="http://localhost/project_1/routes/products" style="color: black;"  data-funcion="">Stock</a>
                 <a class="nav-link btn btn-light" href="http://localhost/project_1/routes/management" style="color: black;"  data-funcion="">Gestion Inventario</a>
                 <a class="nav-link btn btn-light" href="http://localhost/project_1/routes/reports" style="color: black;"  data-funcion="">Reportes</a>
+                <a class="nav-link btn btn-light" href="http://localhost/project_1/routes/test" style="color: black;"  data-funcion="">Pruebas</a>
         
             </ul>
         </aside>

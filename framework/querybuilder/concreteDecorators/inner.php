@@ -1,5 +1,5 @@
 <?php
-include "./aggregation.php";
+
 class inner extends aggregation{
     public function __construct(operation $operation)
     {

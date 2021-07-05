@@ -1,5 +1,5 @@
 <?php
-include "./aggregation.php";
+
 class group extends aggregation{
     public function __construct(operation $operation)
     {
@@ -10,9 +10,9 @@ class group extends aggregation{
     {
        return parent::concatenate();
     }
-    public function run(){
+    // public function run(){
 
-    }
+    // }
     
 }
 

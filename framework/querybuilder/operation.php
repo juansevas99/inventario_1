@@ -1,5 +1,6 @@
 <?php
 abstract class  operation {
+    public operation $operation;
     // it refers to the string query it will return
     protected $queryString; 
     // it refers  to the model it implements. it provides all the information related to model or Db table
@@ -10,6 +11,8 @@ abstract class  operation {
     protected $predecesors;
     // this is the isolated strig formed. it is made up with the parameters passed. 
     protected $currentStringQuery;
+
+    protected $filtros;
     function __construct()
     {
         
@@ -17,10 +20,14 @@ abstract class  operation {
 
 
     public function concatenate(): string {
-        $this->queryString=$this->operation->concatenate()." ".$this->currentStringQuery;
-        return $this->queryString;
+        return "";
+       
     }
-    abstract public function run();
-    
+    public function run(){
+        
+        $this->model->listar($this->concatenate(),$this->operation->filtros);
+
+
+    }
 }
 ?>

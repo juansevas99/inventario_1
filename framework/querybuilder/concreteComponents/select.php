@@ -1,20 +1,21 @@
 <?php
 
-include './operation.php';
 class select extends operation {
     private $table;
-    function __construct(model $model)
+    function __construct(model $model=null)
     {
         $this->model=$model;
-        $this->function="select ";
+        $this->function="select";
         $this->table=$this->model->table;
-
+        
         parent::__construct();
     }
     
     public function concatenate(): string
     {
-       return parent::concatenate();
+        $this->currentStringQuery=$this->function;
+        $this->queryString=$this->currentStringQuery;
+        return $this->queryString;
     }
     public function run(){
 

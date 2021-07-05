@@ -1,5 +1,4 @@
 <?php
-include "./aggregation.php";
 class set extends aggregation{
     public function __construct(operation $operation)
     {

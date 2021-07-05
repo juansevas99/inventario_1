@@ -537,6 +537,34 @@ function deleteAdmin(a) {
         )
 
 }
+
+
+function test(){
+    fetch('http://localhost/project_1/test/list')
+    .then(
+        response => {
+            if (response.ok == false || response.status > 299) {
+                return Promise.reject({ err: "Error, no se encontro el archivo" })
+                response[0]
+            }
+            return response.json()
+        }
+
+    )
+    .then(
+        response => {
+            // console.log(response)
+            display(response);
+
+        }
+    )
+    .catch(
+        err => {
+            console.error(err)
+        }
+    )
+}
+
 d.addEventListener('DOMContentLoaded', () => {
 
 
@@ -632,6 +660,9 @@ d.addEventListener('DOMContentLoaded', () => {
     else if (document.getElementById('crearSalida')) {
 
         crearSalida();
+    }
+    else if (document.getElementById('test')) {
+        document.getElementById('list-users').addEventListener('click',()=>{test()})
     }
     else if (document.getElementById('reportes')) {
         document.querySelectorAll('[data-reporte]').forEach(e => {

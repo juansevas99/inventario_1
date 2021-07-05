@@ -10,9 +10,25 @@ include_once 'web/web.php';
 include_once 'web/iniciarRutas.php';
 
 
+
+include_once "./framework/querybuilder/operation.php";
+include_once "./framework/querybuilder/aggregation.php";
+include_once "./framework/querybuilder/concreteDecorators/columns.php";
+include_once "./framework/querybuilder/concreteDecorators/from.php";
+include_once "./framework/querybuilder/concreteDecorators/group.php";
+include_once "./framework/querybuilder/concreteDecorators/inner.php";
+include_once "./framework/querybuilder/concreteDecorators/limit.php";
+include_once "./framework/querybuilder/concreteComponents/select.php";
+include_once "./framework/querybuilder/concreteComponents/delete.php";
+include_once "./framework/querybuilder/concreteComponents/update.php";
+include_once "./framework/querybuilder/concreteComponents/insert.php";
+include_once "./framework/querybuilder/concreteDecorators/where.php";
+include_once "./framework/querybuilder/concreteDecorators/orderby.php";
+include_once "./framework/querybuilder/concreteDecorators/all.php";
+
+
+
 session_start();
-
-
 if (web::ValidarRutas($ruta)){
     // se validan las clases y metodos
     if (!isset($_SESSION['logged']) && $ruta!="rutas/error"){
