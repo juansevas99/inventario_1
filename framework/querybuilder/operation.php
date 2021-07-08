@@ -4,7 +4,7 @@ abstract class  operation {
     // it refers to the string query it will return
     protected $queryString; 
     // it refers  to the model it implements. it provides all the information related to model or Db table
-    protected model $model; 
+    public  model $model; 
     // it refers to the type of function or type of aggregate function like select, limit, update, from, where etc
     protected $function;
     // collection of possible predecessor functions according to sql syntax
@@ -12,7 +12,7 @@ abstract class  operation {
     // this is the isolated strig formed. it is made up with the parameters passed. 
     protected $currentStringQuery;
 
-    public $filtros;
+    public $filtros="";
     function __construct()
     {
         

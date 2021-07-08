@@ -1,22 +1,36 @@
 <?php
 
-class paginacion{
+class tablas{
 
-    private int $numeroRegistros;
-    private int $limite=10;
-    public  int $paginas;
-    private $num_pagina=0;
-    public  $modelo;
-    function __construct($model){
-        $this->modelo=$model;
+    public static $rows;
+    public static $pages;
+    function __construct(){
+        
         
     }
 
 
-    private function numeroregistro(){
-        $this->modelo->select_([],[]);
-        $this->modelo->stmt->store_result();
-        $this->numeroRegistros=$this->modelo->stmt->num_rows();
+    public static function paginate(operation $operation, $limit, $offset){
+        
+        $operation->run();
+        // echo json_encode(count($operation->model->data));
+        // exit();
+        tablas::$rows=count($operation->model->data); 
+        // Stmt should not be a public attribute. It should create a getter method to obtain this in one way
+        tablas::$pages=ceil(tablas::$rows/$limit);
+        // echo json_encode([tablas::$pages,tablas::$rows,$limit,ceil(tablas::$rows/$limit)]);
+        // exit();
+        
+        
+        
+        $offset--;
+        $offset=$offset*$limit;
+        $operation= new limit($operation,$limit);
+        $operation=new offset($operation,$offset);
+        $operation->run();
+        // echo  $operation->concatenate();
+        // exit();
+
     }
 }
 ?>

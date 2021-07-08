@@ -9,9 +9,9 @@ class columns extends aggregation{
         {
             parent:: __construct($operation);
             $this->function="column";
-            $this->model=$operation->model;
+            // $this->model=$operation->model;
             $this->parameters=$parameters;
-            $this->filtros="";
+            // $this->filtros="";
             $keys=array_keys($parameters);
             for ($i=0; $i <count($keys) ; $i++) { 
                 if(!in_array($keys[$i],$operation->model->columns)){

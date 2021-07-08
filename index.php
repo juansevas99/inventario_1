@@ -24,7 +24,9 @@ include_once "./framework/querybuilder/concreteComponents/update.php";
 include_once "./framework/querybuilder/concreteComponents/insert.php";
 include_once "./framework/querybuilder/concreteDecorators/where.php";
 include_once "./framework/querybuilder/concreteDecorators/orderby.php";
+include_once "./framework/querybuilder/concreteDecorators/offset.php";
 include_once "./framework/querybuilder/concreteDecorators/all.php";
+include_once "./framework/componentes/tablas.php";
 
 
 

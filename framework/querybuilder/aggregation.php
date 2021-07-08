@@ -6,7 +6,9 @@ class aggregation extends operation{
     {   
         parent::__construct();
         $this->operation=$operation;
-
+        $this->model=$this->operation->model;
+        $this->table=$this->model->table;
+        $this->filtros=$operation->filtros;
         
         
     }

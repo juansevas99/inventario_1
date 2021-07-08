@@ -22,39 +22,6 @@ class atributo extends Controller{
     }
 
     function actualizarAtributo(){
-        // $this->title="Actualizar Activo";
-        // if ($_GET['Id']){ //validar esta linea
-        //     $filtros=['id_atributos'=>$_GET['Id']];
-        //     $this->model->index_($filtros);
-
-        //     $activo=$this->model->data;
-        //     $this->model->select_($filtros);
-        //     $activo_select=$this->model->data;
-            
-
-            
-            //Se genera el array
-            
-           
-           
-            // $datos=array(
-            //     'datos'=>$activo,
-            //     'datos_select'=>$activo_select,
-
-            // );
-        //    echo "<pre>";
-        //     var_dump($datos);
-        //     echo "</pre>";
-        //     exit();
-              
-
-
-            
-        // }
-        // $this->view="actualizarAtributos";
-        // include 'lib/templates.php';
-
-
         $estructura=[
             'id_marca'=> 'id_marca',
             'nombre' => 'nombre'

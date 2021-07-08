@@ -2,13 +2,14 @@
 class orderby extends aggregation{
     public function __construct(operation $operation, $parameters=null)
     {
+        $this->function="order by";
         if ($operation->function=="select" || $operation->function=="where" ||  $operation->function=="from" ||$operation->function=="column" || $operation->function=="group by" || $operation->function=="inner")
         {
             parent:: __construct($operation);
-            $this->function="order by";
+            
             $this->parameters=$parameters;
-            $this->filtros=$operation->filtros;
-            $this->model=$operation->model;
+            // $this->filtros=$operation->filtros;
+            // $this->model=$operation->model;
         
         }
         else {

@@ -10,7 +10,7 @@ class where extends aggregation{
             $this->parameters=$parameters;
             $this->filtros=$parameters;
             
-            $this->model=$operation->model;
+            // $this->model=$operation->model;
             
             
         }

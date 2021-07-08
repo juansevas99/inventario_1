@@ -1,11 +1,11 @@
 <?php
-class limit extends aggregation{
+class offset extends aggregation{
     public function __construct(operation $operation,$parameters)
     {   
-        $this->function="limit";
+        $this->function="offset";
         if($operation->function=="select" || $operation->function=="where" 
-        || $operation->function=="*" || $operation->function=="all" 
-        || $operation->function=="order by" || $operation->function=="column"){
+        || $operation->function=="*" || $operation->function=="all"
+        || $operation->function=="order by" || $operation->function=="limit"){
             parent:: __construct($operation);
             
             $this->parameters=$parameters;// it will receive a number which  will defines how many records this query will return
@@ -21,7 +21,7 @@ class limit extends aggregation{
     public function concatenate(): string
     {
 
-        $this->currentStringQuery=" limit ".$this->parameters;
+        $this->currentStringQuery=" offset ".$this->parameters;
         return $this->operation->concatenate()." ".$this->currentStringQuery;
     }
     // public function run(){

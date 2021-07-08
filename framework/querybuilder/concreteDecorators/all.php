@@ -4,13 +4,12 @@ class all extends aggregation {
     private $table;
     function __construct(operation $operation)
     {
+        $this->function="*";
         if ($operation->function=="select")
         {
             parent::__construct($operation);
-            $this->model=$this->operation->model;
-            $this->function="*";
-            $this->table=$this->model->table;
-            $this->filtros="";
+            
+            
             
             
 

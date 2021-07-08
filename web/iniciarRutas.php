@@ -5,6 +5,7 @@ $ruta=explode("/",$_SERVER['REQUEST_URI']);
 $clase=!empty($ruta[2])?$ruta[2]:"";
 $metodo=!empty($ruta[3])?$ruta[3]:"";
 $_GET["id"]=!empty($ruta[4])?$ruta[4]:"";
+unset($_GET["var"]);
 
     $ruta=$clase."/".$metodo;
     
