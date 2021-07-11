@@ -6,17 +6,14 @@ class atributo extends Controller{
         
     }
     function visualizar(){
-     $estructura=[
-        'nombre_atributo' => 'Codigo',
-        'medida_id_medida' => 'Medida'
-     ];
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        echo json_encode($this->model->data);
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_atributo'=>'COD',
+            'nombre_atributo'=>'Atributo',
+            'medida_id_medida'=>'Medida'
+        ]);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]);
 
        
     }
@@ -68,7 +65,7 @@ class atributo extends Controller{
         }
         
     
-        header("Location: http://localhost/project_1/routes/admin");
+        header("Location: ".URL."routes/admin");
 
 
         
@@ -88,7 +85,7 @@ class atributo extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin");       
+            header("Location: ".URL."routes/admin");       
          }
         
     }

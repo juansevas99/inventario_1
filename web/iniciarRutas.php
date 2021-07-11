@@ -40,8 +40,10 @@ web::registrarRutas("user/confirmUpdate","usuario","confirmarActualizar");
 
 
 
-//producto
+//product
+
 web::registrarRutas("product/list","producto","visualizar");
+web::registrarRutas("product/listActives","producto","visualizarEstadoActivo");
 web::registrarRutas("product/create","producto","insertar");
 web::registrarRutas("product/update","producto","actualizar");
 web::registrarRutas("product/delete","producto","delete");

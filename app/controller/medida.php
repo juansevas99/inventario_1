@@ -13,19 +13,14 @@ class medida extends Controller{
         include "resources/templates/crearmedida.php";
     }
     public function visualizar(){
-        $estructura=[
-        'id_medida'=>'id_medida',
-        'nombre_medida' => 'Nombre' ];
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        echo json_encode($this->model->data);   
-
-
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_medida'=>'COD',
+            'nombre_medida'=>'Medida']);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]); 
     }
+
     function insertar(){
         
         if (isset($_POST['crear']) && !empty($_POST['crear'])){

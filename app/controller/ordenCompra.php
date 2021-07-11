@@ -12,7 +12,8 @@ class ordenCompra extends Controller{
         include "resources/templates/error/404.php";
     }
     public function visualizar(){
-        $estructura=[
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
         'id_oden_compra' => 'Id',
         'referencia_entradas'=>'Referencia',
         'lote_entradas'=>'Lote',
@@ -20,15 +21,9 @@ class ordenCompra extends Controller{
         'precioUnitario'=>'Precio',
         'fecha_creacion_entrada'=>'Fecha',
         'producto_id_producto'=>'Producto',
-        'proveedor_id_proveedor'=>'Proveedor'
-    ];
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        echo json_encode($this->model->data);   
+        'proveedor_id_proveedor'=>'Proveedor']);
+        tablas::paginate($operation,6,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]);
 
 
     }
@@ -41,7 +36,7 @@ class ordenCompra extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
+            header("Location: ".URL."routes/admin"); 
             }
        
     }

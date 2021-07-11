@@ -27,22 +27,29 @@ function display(response) {
 
 	$cuerpo.innerHTML = $cadenaCuerpo
 }
-function administracion(element) {
+function administracion(element,id) {
 	// document.getElementById('crearRegistro')
 	console.log(element + "/list")
-	fetch("http://localhost/project_1/" + element + "/list", {
-		method: "POST",
+	fetch("http://localhost/project_1/"+ element + "/list/"+id, {
+		method: "GET",
 	})
 		.then((response) => {
 			if (response.ok == false || response.status > 299) {
-				return Promise.reject({ err: "Error, no se encontro el archivo json" })
-				response[0]
+				return Promise.reject( "Error, no se encontro el archivo json" )
 			}
 			return response.json()
 		})
 		.then((response) => {
-			// console.log(response)
-			display(response)
+			console.log(response)
+			
+			display(response[0])
+			if (response[1]){
+				document.getElementById('pagination').classList.remove('d-none');
+				paginate(response[1]);
+			}
+			else{
+				document.getElementById('pagination').classList.add('d-none');
+			}
 		})
 		.catch((err) => {
 			console.error(err)
@@ -191,19 +198,28 @@ function atributosProducto() {
 		})
 }
 
-function productos() {
-	fetch("http://localhost/project_1/product/list", {
+function productos(id) {
+	fetch("http://localhost/project_1/product/listActives/"+id, {
 		method: "GET",
 	})
 		.then((response) => {
 			if (response.ok == false || response.status > 299) {
 				return Promise.reject({ err: "Error, no se encontro el archivo" })
-				response[0]
+				
 			}
 			return response.json()
 		})
 		.then((response) => {
-			display(response)
+			console.log(response)
+			
+			display(response[0])
+			if (response[1]){
+				document.getElementById('pagination').classList.remove('d-none');
+				paginateStock(response[1]);
+			}
+			else{
+				document.getElementById('pagination').classList.add('d-none');
+			}
 		})
 		.catch((err) => {
 			console.error(err)
@@ -272,11 +288,12 @@ function planeacion() {
 				})
 		})
 }
-function gestionInventario() {
-	fetch("http://localhost/project_1/purchaseOrder/list", {
+function gestionInventario(id) {
+	fetch("http://localhost/project_1/purchaseOrder/list/"+id, {
 		method: "GET",
 	})
-		.then((response) => {
+
+	.then((response) => {
 			if (response.ok == false || response.status > 299) {
 				return Promise.reject({ err: "Error, no se encontro el archivo" })
 				response[0]
@@ -284,31 +301,47 @@ function gestionInventario() {
 			return response.json()
 		})
 		.then((response) => {
+			console.log(response)
+
+			
+
 			$cabecera = document.querySelector("#tabla-admin > .cabecera")
 			$cadenaCabecera = ""
-			for (let i = 0; i < Object.keys(response[0]).length; i++) {
-				$cadenaCabecera += "<th>" + Object.keys(response[0])[i] + "</th>"
+			for (let i = 0; i < Object.keys(response[0][0]).length; i++) {
+				$cadenaCabecera += "<th>" + Object.keys(response[0][0])[i] + "</th>"
 			}
 			$cadenaCabecera += "<th colspan=3>Accciones</th>"
 			$cabecera.innerHTML = $cadenaCabecera
 			$cuerpo = document.querySelector("#tabla-admin > .cuerpo")
 			$cadenaCuerpo = ""
-			for (let j = 0; j < response.length; j++) {
+			for (let j = 0; j < response[0].length; j++) {
 				$cadenaCuerpo += "<tr>"
-				for (let k = 0; k < Object.keys(response[j]).length; k++) {
+				for (let k = 0; k < Object.keys(response[0][j]).length; k++) {
 					$cadenaCuerpo +=
-						"<td>" + response[j][Object.keys(response[0])[k]] + "</td>"
+						"<td>" + response[0][j][Object.keys(response[0][0])[k]] + "</td>"
 				}
 
 				$cadenaCuerpo +=
 					"<td><button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#Detalles'>Detalles</button><td><a href='http://localhost/project_1/entries/create/" +
-					response[j][Object.keys(response[0])[0]] +
+					response[0][j][Object.keys(response[0][0])[0]] +
 					"' class='btn btn-warning' >Gestionar Entradas</a></td><td><a href='http://localhost/project_1/outputs/create/" +
-					response[j][Object.keys(response[0])[0]] +
+					response[0][j][Object.keys(response[0][0])[0]] +
 					"' class='btn btn-warning'>Gestionar Salidas</a></td></tr>"
 			}
 
 			$cuerpo.innerHTML = $cadenaCuerpo
+
+			if (response[1]){
+				console.log(response[1])
+				document.getElementById('pagination').classList.remove('d-none');
+				paginateGestionInventario(response[1]);
+			}
+			else{
+				document.getElementById('pagination').classList.add('d-none');
+			}
+
+
+			
 		})
 		.catch((err) => {
 			console.error(err)
@@ -452,28 +485,55 @@ function deleteAdmin(a) {
 	)
 		.then((response) => {
 			if (response.ok == false || response.status > 299) {
-				return Promise.reject({ err: "Error, no se encontro el archivo" })
-				response[0]
+				return Promise.reject("Error, no se encontro el archivo")
 			}
-			return response.json()
+			return response.text()
 		})
 		.then((response) => {
-			// console.log(response)
-			display(response)
+			console.log(document.getElementById("popup").getAttribute("data-pop"),1)
+			
+			administracion(document.getElementById("popup").getAttribute("data-pop"),1)
 		})
 		.catch((err) => {
-			console.error(err.err)
+			console.error(err)
 		})
 }
 
 
-function paginate(pages){
+function paginateGestionInventario(pages){
+
 	cadena=""
-	cadena+="<li class='page-item  small'><a class='page-link' onclick=test(1)>First</a></li>"
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=gestionInventario("+1+")>First</a></li>"
 	for (let i = 1; i <=pages ; i++) {
-		cadena+="<li class='page-item  small'><a class='page-link' onclick=test("+i+")>"+i+"</a></li>"		
+		cadena+="<li class='page-item  small'><a class='page-link' onclick=gestionInventario("+i+")>"+i+"</a></li>"		
 	}
-	cadena+="<li class='page-item  small'><a class='page-link' onclick=test("+pages+")>Last</a></li>"
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=gestionInventario("+pages+")>Last</a></li>"
+
+	document.getElementById("pagination").innerHTML=cadena;
+}
+
+function paginate(pages){
+	$pop_= document.getElementById("popup").getAttribute("data-pop");
+	console.log($pop_);
+
+	cadena=""
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=administracion('"+$pop_+"',"+1+")>First</a></li>"
+	for (let i = 1; i <=pages ; i++) {
+		cadena+="<li class='page-item  small'><a class='page-link' onclick=administracion('"+$pop_+"',"+i+")>"+i+"</a></li>"		
+	}
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=administracion('"+$pop_+"',"+pages+")>Last</a></li>"
+
+	document.getElementById("pagination").innerHTML=cadena;
+}
+
+function paginateStock(pages){
+
+	cadena=""
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=productos("+1+")>First</a></li>"
+	for (let i = 1; i <=pages ; i++) {
+		cadena+="<li class='page-item  small'><a class='page-link' onclick=productos("+i+")>"+i+"</a></li>"		
+	}
+	cadena+="<li class='page-item  small'><a class='page-link' onclick=productos("+pages+")>Last</a></li>"
 
 	document.getElementById("pagination").innerHTML=cadena;
 }
@@ -507,16 +567,17 @@ d.addEventListener("DOMContentLoaded", () => {
 			"Extrayendo Datos del servidor ..."
 		document.querySelectorAll("[data-ruta]").forEach((e) => {
 			e.addEventListener("click", (element) => {
+				console.log($pop);
 				$pop.setAttribute(
 					"data-pop",
 					element.currentTarget.getAttribute("data-ruta")
 				)
-				administracion(element.currentTarget.getAttribute("data-ruta"))
+				administracion(element.currentTarget.getAttribute("data-ruta"),1)
 			})
 		})
 		setTimeout(() => {
 			administracion(
-				document.querySelector("[data-ruta]").getAttribute("data-ruta")
+				document.querySelector("[data-ruta]").getAttribute("data-ruta"),1
 			)
 			$pop.setAttribute("data-pop", "user")
 		}, 2000)
@@ -552,7 +613,7 @@ d.addEventListener("DOMContentLoaded", () => {
 	} else if (document.getElementById("productos")) {
 		document.querySelector("#tabla-admin > .cabecera").innerHTML =
 			"Extrayendo Datos del servidor ..."
-		productos()
+		productos(1)
 	} else if (document.getElementById("crearProducto")) {
 		crearProducto()
 	} else if (document.getElementById("atributosProducto")) {
@@ -560,7 +621,7 @@ d.addEventListener("DOMContentLoaded", () => {
 	} else if (document.getElementById("planeacion")) {
 		planeacion()
 	} else if (document.getElementById("gestionInventario")) {
-		gestionInventario()
+		gestionInventario(1)
 	} else if (document.getElementById("crearEntrada")) {
 		crearEntrada()
 	} else if (document.getElementById("crearSalida")) {

@@ -4,6 +4,7 @@
         function __construct(){
             parent::__construct();
             $this->table="marca";
+            $this->columns=['id_marca','nombre'];
         }
 
         function select_($estructura,$filtros){

@@ -19,14 +19,14 @@ class test extends Controller{
         //  Request of type GET cant be received well
         // $operation=new where($operation,['producto_id_producto'=>3]);
         // its lack for adding the functionaluty of allowing more columns by which it orders
-        $operation=new orderby($operation,["fecha_creacion_entrada"]); 
+        // $operation=new orderby($operation,["fecha_creacion_entrada"]); 
         // $operation=new limit($operation,$_GET['id']);
         // echo $_GET['id'];
     //    $operation->run(); 
         // echo $operation->concaruntenate();
         // exit();
         
-        tablas::paginate($operation,3,$_GET['id']);
+        tablas::paginate($operation,7,$_GET['id']);
         // var_dump($this->model->data);
         
         echo json_encode([$this->model->data,tablas::$pages]);

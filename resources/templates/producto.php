@@ -23,6 +23,7 @@
                     <button class="btn"  name="" id="">Search</button>
                 </div>
             </div>
+            <div id="popup" class="d-none" data-pop=""></div>
             <div style="overflow-x: scroll;">
                 <table id="tabla-admin" class="table my-3" >
                     <thead class="cabecera">
@@ -34,6 +35,12 @@
                        
                     </tbody>
                 </table>
+                <nav aria-label="pagination" class="">
+                    <ul id="pagination" class="pagination">
+
+                       
+                    </ul>
+                </nav>
             </div>
         </div>
 
@@ -42,11 +49,11 @@
 
           <!--  -->
 
-          <div id="popoverUpdate" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
-    <div onclick="updateAdmin()" class="btn-dark btn">Cerrar</div>
-    <div class="d-flex">
-
-        <div class="m-auto bg-light p-5">
+    <div id="popoverUpdate" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
+        <div onclick="updateAdmin()" class="btn-dark btn">Cerrar
+        </div>
+        <div class="d-flex">
+            <div class="m-auto bg-light p-5">
         </div>
     </div>
 </div>

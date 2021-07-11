@@ -1,6 +1,6 @@
 <?php
 include_once 'constantes.php';
-class conn extends constantes{
+class conn {
 
     private $dsn;
     protected $dbo;
@@ -11,13 +11,13 @@ class conn extends constantes{
     function __construct()
     {
         try {
-            $this->dsn = "mysql:host=" . $this->HOST_LOCAL . ";dbname=" . $this->DBNAME;
+            $this->dsn = "mysql:host=" . HOST_LOCAL . ";dbname=" . DBNAME;
             $options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Permite generar un fatal error o manejar los errores de conexion a SQL
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,// permite recuperar los datos por defaul como arrray asociativo
                 PDO::ATTR_PERSISTENT=>true
             );
-            $this->dbo = new PDO($this->dsn, $this->USER_LOCAL, $this->PASSWORD_LOCAL, $options); //Crea una conexion mysql a la base de datos
+            $this->dbo = new PDO($this->dsn, USER_LOCAL, PASSWORD_LOCAL, $options); //Crea una conexion mysql a la base de datos
 
         } catch (PDOException $e) {
 

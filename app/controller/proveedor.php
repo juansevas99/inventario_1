@@ -10,25 +10,16 @@ class proveedor extends Controller{
         include "resources/templates/crearproveedor.php";
     }
     function visualizar(){
-        $estructura=[
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
             'id_proveedor' => 'Id',
         	'nombre_proveedor' => 'Nombre',
             'correo'  => 'Correo',
             'documento'  => 'Documento',
-            'telefono' => 'Telefono'];
-        
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        
-
-        echo json_encode($this->model->data);
-    
-       
-      
+            'telefono' => 'Telefono']);
+        $operation=new orderby($operation,['correo']);
+        $operation->run();
+        echo json_encode([$this->model->data]);
     }
     
     
@@ -67,7 +58,7 @@ class proveedor extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: http://localhost/project_1/routes/admin");
+        header("Location: ".URL."routes/admin");
 
         
         
@@ -85,7 +76,7 @@ class proveedor extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
+            header("Location: ".URL."routes/admin"); 
                 }
        
     }

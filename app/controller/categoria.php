@@ -8,20 +8,12 @@ class categoria extends Controller{
 
 
     function visualizar(){
-        $estructura=[  // it provides and structure (select fields)
-            'id_categoria' => 'Id',
-             'nombre_categoria' => 'Nombre'
-        ];
-        
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-    
-        echo json_encode($this->model->data);   
-        
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_categoria'=>'COD',
+            'nombre_categoria'=>'Categoria'        ]);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]); 
     }
 
 
@@ -76,7 +68,7 @@ class categoria extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: http://localhost/project_1/routes/admin");
+        header("Location: ".URL."routes/admin");
 
 
         
@@ -95,7 +87,7 @@ class categoria extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin");
+            header("Location: ".URL."routes/admin");
         }
        
     }

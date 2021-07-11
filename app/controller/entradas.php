@@ -38,7 +38,7 @@ class entradas extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/management");
+            header("Location: ".URL."routes/management");
             }
         else{
             

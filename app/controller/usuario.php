@@ -10,25 +10,15 @@ class usuario extends Controller
     }
     public function visualizar()
     {
-        $estructura=[
-            'id_usuario'=>'Id',
-           'usuario' => 'Nombre usuario',
-           'correo'=>'Correo'
-            
-
-        ];
-        $filtros = "";
-        if (isset($_POST['send'])) { // En caso de que hayan filtros, se enviara un POST
-            unset($_POST['send']);
-            $filtros = $_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        
-        echo json_encode($this->model->data);
-        
-        
-
-    }
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_usuario'=>'COD',
+            'usuario'=>'Usuario',
+            'correo'=>'Correo'
+        ]);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]);
+ }
     public function signUp()
     {
         $filtros = "";
@@ -58,7 +48,7 @@ class usuario extends Controller
             } else {
                 $_SESSION['serverResponse'] = "No se registro correctamente, vuelva a intentarlo";
             }
-            header("Location: http://localhost/project_1/routes/admin");
+            header("Location: ".URL."routes/admin");
 
         }
     }
@@ -144,14 +134,14 @@ class usuario extends Controller
 
 
             $this->model->update_($valores,$filtros);
-            header("Location: http://localhost/project_1/routes/admin");
+            header("Location: ".URL."routes/admin");
         
 
     }
 
     function delete(){
         $this->model->delete_(['id_usuario'=>$_GET['id']]);
-        header("Location: http://localhost/project_1/routes/admin");
+        header("Location: ".URL."routes/admin");
     }
 
     public function cerrarSesion()

@@ -8,27 +8,37 @@
  
      }
      public function visualizar(){
-         $estructura=[
-        'id_producto'=>'Id',
-         'referencia_producto' => 'Referencia de Producto',
-        'nombre_producto' => 'Producto',
-        'fecha_creacion'=>'Fecha de creacion',
-        'estado_id_estado'=>'Estado',
-        'categoria_id_categoria'=>'Categoria',
-        'stock_producto'=>'Stock de producto',
-        'proveedor_id_proveedor'=>'Proveedor',
-        'marca_id_marca'=>'Marca'
-        ];
-         $filtros="";
-         if (isset($_POST['send'])){
-             unset($_POST['send']);
-             $filtros=$_POST;
-         }
-         $this->model->select_($estructura,$filtros);
-         echo json_encode($this->model->data);   
- 
- 
-     }
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_producto'=>'Id',
+            'referencia_producto' => 'Referencia de Producto',
+           'nombre_producto' => 'Producto',
+           'estado_id_estado'=>'Estado',
+           'categoria_id_categoria'=>'Categoria',
+           'stock_producto'=>'Stock de producto',
+           'proveedor_id_proveedor'=>'Proveedor',
+           'marca_id_marca'=>'Marca'
+        ]);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]);
+    }
+
+    public function visualizarEstadoActivo(){
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_producto'=>'Id',
+            'referencia_producto' => 'Referencia de Producto',
+           'nombre_producto' => 'Producto',
+           'categoria_id_categoria'=>'Categoria',
+           'stock_producto'=>'Stock de producto',
+           'proveedor_id_proveedor'=>'Proveedor',
+           'marca_id_marca'=>'Marca'
+        ]);
+        $operation=new where($operation,['estado_id_estado'=>1]);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]);
+    }
+
 
      public function productoView(){
         header('Location: resources/templates/productos.html');

@@ -57,7 +57,7 @@ class tipo_entrada extends Controller{
             // var_dump($filtros,$valores);
         $this->model->update_($valores,$filtros);
 
-        header("Location: http://localhost/project_1/routes/admin");
+        header("Location: ".URL."routes/admin");
 
         
         
@@ -71,7 +71,7 @@ class tipo_entrada extends Controller{
             // var_dump($_POST);
             // exit();
             $this->model->insert_($_POST);
-            header("Location: http://localhost/project_1/routes/admin"); 
+            header("Location: ".URL."routes/admin"); 
                 }
        
     }

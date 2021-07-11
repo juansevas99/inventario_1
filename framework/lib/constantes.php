@@ -1,15 +1,12 @@
 <?php
 
+    define('USER_LOCAL','root');
+    define( 'HOST_LOCAL','localhost');
+    define('DBNAME','inventario_3_1');
+    define('PASSWORD_LOCAL','');
+    define('CHARSET','uf8mb4');
+    define('URL','http://localhost/project_1/');
 
-// Constantes de conexion a bases de datos Mysql local
-class constantes
-{
-    protected $USER_LOCAL='root';
-    protected $HOST_LOCAL='localhost';
-    protected $DBNAME='inventario_3_1';
-    protected $PASSWORD_LOCAL='';
-    protected $CHARSET='uf8mb4';
 
-}
 
 ?>

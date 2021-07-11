@@ -6,6 +6,7 @@ class usuario_m extends model{
     {
         parent::__construct();
         $this->table="usuario";
+        $this->columns=["id_usuario","usuario","correo","password"];
         
     } 
     

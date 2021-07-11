@@ -4,6 +4,7 @@
         function __construct(){
             parent::__construct();
             $this->table="categoria";
+            $this->columns=[ 'id_categoria','nombre_categoria'];
         }
 
         function select_($estructura,$filtros){

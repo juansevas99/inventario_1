@@ -19,7 +19,13 @@
                 </nav>
             </div>
 
-        
+            <div id="popoverUpdate" class="position-absolute h-100 w-100 top-0  d-none" style="background-color: rgb(0, 0, 0,0.4);">
+        <div onclick="updateAdmin()" class="btn-dark btn">Cerrar
+        </div>
+        <div class="d-flex">
+            <div class="m-auto bg-light p-5">
+        </div>
+    </div>
     </main>
     
 

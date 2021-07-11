@@ -30,6 +30,7 @@ include_once "./framework/componentes/tablas.php";
 
 
 
+
 session_start();
 if (web::ValidarRutas($ruta)){
     // se validan las clases y metodos
@@ -54,6 +55,6 @@ if (web::ValidarRutas($ruta)){
 }
 else{
     
-    header("Location: http://localhost/project_1/routes/error");
+    header("Location: ".URL."routes/error");
 
 }

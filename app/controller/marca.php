@@ -7,19 +7,12 @@ class marca extends Controller{
     }
 
     function visualizar(){
-        $estructura=[
-            'id_marca'=> 'Id',
-            'nombre' => 'Nombre'
-        ];
-        $filtros="";
-        if (isset($_POST['send'])){
-            unset($_POST['send']);
-            $filtros=$_POST;
-        }
-        $this->model->select_($estructura,$filtros);
-        echo json_encode($this->model->data);
-        
-     
+        $operation=new select($this->model);
+        $operation=new columns($operation,[
+            'id_marca'=>'COD',
+            'nombre'=>'Marca']);
+        tablas::paginate($operation,3,$_GET['id']);
+        echo json_encode([$this->model->data,tablas::$pages]); 
     }
     function actualizar(){
       

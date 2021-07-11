@@ -30,6 +30,12 @@
                        
                     </tbody>
                 </table>
+                <nav aria-label="pagination" class="">
+                    <ul id="pagination" class="pagination">
+
+                       
+                    </ul>
+                </nav>
             </div>
         </div>
             

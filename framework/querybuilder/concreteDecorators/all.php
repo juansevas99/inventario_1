@@ -1,18 +1,12 @@
 <?php
 
 class all extends aggregation {
-    private $table;
     function __construct(operation $operation)
     {
         $this->function="*";
         if ($operation->function=="select")
         {
             parent::__construct($operation);
-            
-            
-            
-            
-
         }
         else {
             echo "Sql structure is wrong at '".$this->function."'";
