@@ -38,6 +38,11 @@ class rutas extends Controller{
         
         include "resources/templates/error/errorSQL.php";
     }
+
+    public function apps(){
+        $variable="Applicationts";
+        $this->view->render("apps",$variable);
+    }
    
 
 

@@ -39,7 +39,3 @@
                 echo isset($_SESSION['name_user'])?"Hola !! ".$_SESSION['name_user']:"";
             ?>
     </div>
-
-
-
-    <!-- <div class="m-3"></div> -->

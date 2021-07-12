@@ -11,7 +11,7 @@ unset($_GET["var"]);
     
 
 // Cree ls rurutas/admtas aqui debajo
-web::registrarRutas("/","rutas","productos");
+web::registrarRutas("/","rutas","apps");
 web::registrarRutas("routes/admin","rutas","administracion");
 web::registrarRutas("routes/management","rutas","ordenCompra");
 web::registrarRutas("routes/products","rutas","productos");
