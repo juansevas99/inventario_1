@@ -6,6 +6,7 @@ class select extends operation {
     {
         $this->model=$model;
         $this->function="select";
+        $this->mainOperation="select";
         $this->table=$this->model->table;
         
         parent::__construct();

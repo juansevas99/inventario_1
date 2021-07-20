@@ -9,8 +9,8 @@ class aggregation extends operation{
         $this->model=$this->operation->model;
         $this->table=$this->model->table;
         $this->filtros=$operation->filtros;
-        
-        
+        $this->valores=$operation->valores;
+        $this->mainOperation=$operation->mainOperation;
     }
     
     

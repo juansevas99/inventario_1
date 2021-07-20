@@ -31,7 +31,7 @@ class conn {
     }
     public function prepararSentencia($sqlquery, $filtros)
     {
-
+        
         try {
             
             $this->stmt = $this->dbo->prepare($sqlquery);
@@ -65,6 +65,7 @@ class conn {
                 }
             }
             $this->stmt->execute();
+            
             
             
         } catch (PDOException $e) {
@@ -132,7 +133,6 @@ class conn {
             // echo "::::::///";
             
             $this->stmt->execute();
-            
             
         } catch (PDOException $e) {
             $variable="Error SQL:".$e->getMessage();

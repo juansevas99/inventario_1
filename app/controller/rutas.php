@@ -24,6 +24,11 @@ class rutas extends Controller{
         $variable="Gestion de inventario";
         $this->view->render("gestionInventario",$variable);
     }
+    public function opcionOfManagement(){
+        $variable="Opciones";
+        $this->view->render("opcionOfManagement",$variable);
+    }
+    
     public function test(){
         $variable="Test";
         $this->view->render("test",$variable);

@@ -3,7 +3,8 @@ class where extends aggregation{
     public function __construct(operation $operation,$parameters=null)
     {
 
-        if ($operation->function=="column" || $operation->function=="*" || $operation->function=="set" || $operation->function=="from" || $operation->function=="column" || $operation->function=="delete")
+        if ($operation->function=="column" || $operation->function=="*"
+        || $operation->function=="set" || $operation->function=="delete")
         {
             parent:: __construct($operation);
             $this->function="where";

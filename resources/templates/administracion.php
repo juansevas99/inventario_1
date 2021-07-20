@@ -14,12 +14,12 @@
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="user" href="#">Usuarios</a>
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="supplier" href="#">Proveedores</a>
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="brand" href="#">Marcas</a>
-                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="features" href="#">Atributos</a>
+                    <!-- <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="features" href="#">Atributos</a> -->
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="measure" href="#">Medida</a>
-                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_outputs" href="#">Tipo de salida</a>
+                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_outputs" href="#">Tipos de salida</a>
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="type_entries" href="#">Tipo de entrada</a>
-                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="product" href="#">Productos</a>
-                    <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="purchaseOrder" href="#">Orden Compra</a>
+                    <!-- <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="product" href="#">Productos</a> -->
+                    <!-- <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="purchaseOrder" href="#">Orden Compra</a> -->
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="category" href="#">Categoria de Productos</a>
                     <a class="btn btn-light" style="color: black; font-size: 92%" data-ruta="rol" href="#">Roles</a>
                 </ul>

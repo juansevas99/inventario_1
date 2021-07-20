@@ -1,7 +1,7 @@
 <div id="contenido" class="col">
     <main id="apps" class="  m-3">
         <div  class="row">
-            <a  class="col" href="<?php echo URL?>">
+            <a  class="col" href="<?php echo URL?>routes/products">
             <div class="card">
                 <div class="card-divider">
                     Inventario

@@ -11,8 +11,10 @@ abstract class  operation {
     protected $predecesors;
     // this is the isolated strig formed. it is made up with the parameters passed. 
     protected $currentStringQuery;
+    protected $mainOperation;
 
-    public $filtros="";
+    public $filtros=[];
+    public $valores=[];
     function __construct()
     {
         
@@ -24,8 +26,24 @@ abstract class  operation {
        
     }
     public function run(){
+        switch ($this->operation->mainOperation) {
+            case 'select':
+                $this->model->listar($this->concatenate(),$this->filtros);
+                break;
+            case 'update':
+                $filtros=array_merge($this->valores,$this->filtros);
+                $this->model->actualizar($this->concatenate(),$filtros);
+                break;
+            case 'delete':
+                break;
+            case 'insert':
+                break;
+            
+            default:
+                
+                break;
+        }
         
-        $this->model->listar($this->concatenate(),$this->filtros);
 
 
     }

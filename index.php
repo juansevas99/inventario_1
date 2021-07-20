@@ -2,9 +2,7 @@
 include_once 'framework/lib/controller.php';
 include_once 'framework/lib/conn.php';
 include_once 'framework/lib/iadministrion.php';
-include_once 'framework/lib/formatearConsulta.php';
 include_once 'framework/lib/model.php';
-include_once 'framework/lib/factoryModel.php';
 include_once 'framework/lib/view.php';
 include_once 'web/web.php';
 include_once 'web/iniciarRutas.php';
@@ -26,6 +24,7 @@ include_once "./framework/querybuilder/concreteDecorators/where.php";
 include_once "./framework/querybuilder/concreteDecorators/orderby.php";
 include_once "./framework/querybuilder/concreteDecorators/offset.php";
 include_once "./framework/querybuilder/concreteDecorators/all.php";
+include_once "./framework/querybuilder/concreteDecorators/set.php";
 include_once "./framework/componentes/tablas.php";
 
 

@@ -1,6 +1,6 @@
 <?php
 
-class usuario_m extends model{
+class usuario_has_rol extends model{
    
     function __construct()
     {
