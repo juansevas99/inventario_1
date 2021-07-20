@@ -5,18 +5,26 @@ $ruta=explode("/",$_SERVER['REQUEST_URI']);
 $clase=!empty($ruta[2])?$ruta[2]:"";
 $metodo=!empty($ruta[3])?$ruta[3]:"";
 $_GET["id"]=!empty($ruta[4])?$ruta[4]:"";
+unset($_GET["var"]);
 
     $ruta=$clase."/".$metodo;
     
 
 // Cree ls rurutas/admtas aqui debajo
-web::registrarRutas("/","rutas","productos");
-web::registrarRutas("routes/admin","rutas","administracion");
+web::registrarRutas("/","rutas","apps");
+web::registrarRutas("routes/opcionOfManagement","rutas","opcionOfManagement");
+web::registrarRutas("routes/settings","rutas","administracion");
 web::registrarRutas("routes/management","rutas","ordenCompra");
 web::registrarRutas("routes/products","rutas","productos");
 web::registrarRutas("routes/planOrder","rutas","planeacion");
 web::registrarRutas("routes/reports","rutas","reportes");
 web::registrarRutas("routes/error","rutas","error");
+web::registrarRutas("routes/errorSQL","rutas","errorSQL");
+web::registrarRutas("routes/errorSQL","rutas","errorSQL");
+web::registrarRutas("routes/test","rutas","test");
+
+
+
 
 
 
@@ -33,8 +41,10 @@ web::registrarRutas("user/confirmUpdate","usuario","confirmarActualizar");
 
 
 
-//producto
+//product
+
 web::registrarRutas("product/list","producto","visualizar");
+web::registrarRutas("product/listActives","producto","visualizarEstadoActivo");
 web::registrarRutas("product/create","producto","insertar");
 web::registrarRutas("product/update","producto","actualizar");
 web::registrarRutas("product/delete","producto","delete");
@@ -165,4 +175,10 @@ web::registrarRutas("outputs/update","salidas","actualizar");
 web::registrarRutas("outputs/delete","salidas","delete");
 web::registrarRutas("outputs/showCreate","salidas","prepararCreacion");
 web::registrarRutas("outputs/confirmUpdate","salidas","confirmarActualizar");
-?>
+
+
+
+#test
+
+
+web::registrarRutas("test/list","test","visualizar");
